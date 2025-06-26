@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 17:32:15 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/06/24 18:06:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/06/26 15:50:45 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ int	main(int ac, char **av)
 	std::cout << std::endl;
 	return (0);
 }
+
+
