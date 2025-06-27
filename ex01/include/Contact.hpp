@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:29:42 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/06/26 20:11:01 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/06/26 14:50:37 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/06/27 16:28:38 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Contact.hpp"
 #include <string>
 #include <iostream>
 
-class PhoneBook
+class	Contact
 {
-public:
-	PhoneBook();
-	~PhoneBook();
-	void add(void);
-	void get(std::string){};
-	void increase(void);
-private:
-	int		_index;
-	Contact	WhitePages[8];
+	public:
+		void	print_info(void);
+		int		create(void);
+	private:
+		std::string	_FirstName;
+		std::string	_LastName;
+		std::string	_Nickname;
+		std::string	_PhoneNumber;
+		std::string	_Secret;
 };
-
-// #include "maclasse.hpp"
-
-// void PhoneBook::mabite(){
-// 	std::cout << "hello " << std::endl;
-// }
