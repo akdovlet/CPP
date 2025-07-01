@@ -6,34 +6,49 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 18:07:01 by akdovlet          #+#    #+#              #
-#    Updated: 2025/06/24 18:34:18 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/07/01 17:18:00 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= megaphone
 
-SRC			:= megaphone.cpp
+SRC_DIR		:= src
+SRC			:=	megaphone.cpp
 
-OBJ			:= $(SRC:.cpp=.o)
+BUILD		:= .build
+
+SRC			:= $(addprefix $(SRC_DIR)/, $(SRC))
+
+OBJ			:= $(patsubst $(SRC_DIR)/%.cpp, $(BUILD)/%.o, $(SRC))
+
+DEP			:= $(OBJ:.o=.d)
 
 CC			:= c++
 
-CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98
+CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98 -MMD -MP
 
-all: $(NAME)
+$(BUILD):
+	@mkdir -p $(BUILD)
+
+all: create_dir $(NAME)
+
+create_dir: | $(BUILD)
 
 $(NAME): $(OBJ)
 	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+$(BUILD)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(@D)
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(BUILD)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+-include $(DEP)
+
+.PHONY: all clean fclean re create_dir

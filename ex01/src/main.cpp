@@ -6,12 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:25:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/06/27 18:50:09 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/07/01 15:54:04 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <limits>
 
 int main(void)
 {
@@ -19,12 +18,12 @@ int main(void)
 	std::string	buffer;
 
 	std::cout	<< "PhoneBook 1.07.1\n"
-				<< "Copyright 1981-1994 AK Software\n"
-				<< "Main menu\n"
-				<< "Commands: ADD, SEARCH, EXIT" << std::endl;
+				<< "Copyright 1998 AK Software\n"
+				<< "Commands: ADD, SEARCH, EXIT\n" << std::endl;
 				
 	while (1)
 	{
+		std::cout << "Main menu: " << std::flush;
 		getline(std::cin,buffer);
 		if (std::cin.fail() || buffer == "EXIT")
 		{
@@ -32,11 +31,7 @@ int main(void)
 			break ;
 		}
 		else if (buffer == "ADD")
-		{
 			PB.add();
-			std::cin.clear();
-			std::cout << "Main menu" << std::endl;
-		}
 		else if (buffer == "SEARCH")
 			PB.search();
 	}

@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:50:37 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/01 15:00:31 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/06/24 17:32:15 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/07/01 17:16:13 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include <string>
 #include <iostream>
+#include <cctype>
 
-class	Contact
+void	megaphone(std::string str)
 {
-	public:
-		void	print_info(size_t index);
-		void	print_full_info(void);
-		int		create(void);
-	private:
-		std::string	_FirstName;
-		std::string	_LastName;
-		std::string	_Nickname;
-		std::string	_PhoneNumber;
-		std::string	_Secret;
-};
+	for (int i = 0; str[i]; i++)
+		str[i] = std::toupper(str[i]);
+	std::cout << str;
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (1);
+	}
+	for (int i = 1; av[i]; i++)
+		megaphone(av[i]);
+	std::cout << std::endl;
+	return (0);
+}
+

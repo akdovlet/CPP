@@ -6,15 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:16:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/06/27 18:47:50 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/07/01 15:58:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iomanip>
-#include <limits>
-#include <ios>
 #include <cstdio>
 
 bool	string_is_valid(std::string str)
@@ -69,13 +67,14 @@ int get_value(std::string prompt, std::string &arg)
 		getline(std::cin, arg);
 		if (std::cin.fail())
 		{
-			clearerr(stdin);
+			std::clearerr(stdin);
+			std::cin.clear();
 			std::cout << "\n";
 			break ;
 		}
 		if (arg.empty())
 		{
-			std::cout << "Field can not be empty, try again" << std::endl;
+			std::cerr << "Error: Field can not be empty, try again" << std::endl;
 			continue;
 		}
 		if (prompt != "phone number" && string_is_valid(arg))
@@ -84,7 +83,7 @@ int get_value(std::string prompt, std::string &arg)
 			return (0);
 		else
 		{
-			std::cout << "Invalid format, try again" << std::endl;
+			std::cerr << "Error: Invalid format, try again" << std::endl;
 			continue ;
 		}
 	}
@@ -108,6 +107,7 @@ int		Contact::create(void)
 		return (1);
 	if (get_value("darkest secret", Contact::_Secret))
 		return (1);
+	std::cout << "New contact successfully created" << std::endl;
 	return (0);
 }
 
@@ -118,10 +118,20 @@ std::string	formatting(std::string str)
 	return (str);
 }
 
-void	Contact::print_info(void)
+void	Contact::print_info(size_t index)
 {
-	std::cout	<< "|" << std::right << std::setw(10) << formatting(_FirstName)
-				<< "|" << std::right << std::setw(10) << formatting(_LastName)
-				<< "|" << std::right << std::setw(10) << formatting(_Nickname)
+	std::cout	<< "|" << std::right << std::setw(10) << index
+				<< "|" << std::setw(10) << formatting(_FirstName)
+				<< "|" << std::setw(10) << formatting(_LastName)
+				<< "|" << std::setw(10) << formatting(_Nickname)
 				<< "|" << std::endl;
+}
+
+void	Contact::print_full_info()
+{
+	std::cout	<< "First name: " << _FirstName << "\n"
+				<< "Last name: " << _LastName << "\n"
+				<< "Nickname: " << _Nickname << "\n"
+				<< "Phone number: " << _PhoneNumber << "\n"
+				<< "Darkest secret: " << _Secret << std::endl;
 }

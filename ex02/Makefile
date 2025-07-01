@@ -5,17 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/24 18:07:01 by akdovlet          #+#    #+#              #
-#    Updated: 2025/07/01 17:18:09 by akdovlet         ###   ########.fr        #
+#    Created: 2025/07/01 17:21:23 by akdovlet          #+#    #+#              #
+#    Updated: 2025/07/01 17:23:50 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= PhoneBook
+NAME		:= tests
 
 SRC_DIR		:= src
-SRC			:=	main.cpp		\
-				PhoneBook.cpp	\
-				Contact.cpp
+SRC			:=	tests.cpp		\
+				Account.cpp
 
 BUILD		:= .build
 
