@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:56:56 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/01 19:58:57 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/07/02 12:21:18 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,42 @@ Account::Account(int initial_deposit )
 	std::cout	<< " " << "index:" << Account::_accountIndex
 				<< ";amount:" << initial_deposit
 				<< ";created" << std::endl;
-	Account::_accountIndex++;
+	Account::_accountIndex = _nbAccounts;
 	Account::_amount += initial_deposit;
 	_totalAmount += initial_deposit;
 	_nbAccounts++;
+}
+
+Account::~Account(void)
+{
+	/*I'm supposed to do something here*/
+}
+
+void	Account::makeDeposit(int deposit)
+{
+	Account::_amount += deposit;
+	Account::_nbDeposits++;
 	_totalNbDeposits++;
+	_displayTimestamp();
+	std::cout << "deposit:" << deposit << std::endl;
+}
+
+bool	Account::makeWithdrawal(int withdrawal)
+{
+	if (withdrawal <= Account::_amount)
+	{
+		Account::_amount -= withdrawal;
+		Account::_nbWithdrawals++;
+		_nbWithdrawals++;
+		_totalAmount -= withdrawal;
+		return (true);		
+	}
+	return (false);
+}
+
+int	Account::checkAmount(void) const
+{
+	return (Account::_amount);
 }
 
 int	Account::getNbAccounts(void)
