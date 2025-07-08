@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   open_files.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 19:52:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/08 23:10:10 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/07/08 23:09:01 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/07/08 23:09:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "akSed.hpp"
 
-int	main(int ac, char **av)
+bool	open_files(char **av, std::ifstream &infile, std::ofstream &outfile)
 {
-	std::ifstream	infile;
-	std::ofstream 	outfile;
-	std::string		buffer;
-	
-	if (ac != 4)
+	std::string		newFileName;
+
+	newFileName = av[1];
+	newFileName += ".replace";
+	infile.open(av[1]);
+	if (infile.fail())
 	{
-		std::cerr << "Error: Invalid arguments" << std::endl;
-		return (1);
+		std::perror("Error: infile");
+		return (false);
 	}
-	if (!open_files(av, infile, outfile))
-		return (1);
-	while (getline(infile, buffer))
+	outfile.open(newFileName.c_str());
+	if (outfile.fail())
 	{
-		search_and_replace(av[2], av[3], buffer);
-		outfile << buffer << "\n";
+		std::perror("Error: outfile");
+		infile.close();
+		return (false);
 	}
+	return (true);
 }

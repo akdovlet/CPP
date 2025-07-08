@@ -6,14 +6,16 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/07/04 20:12:20 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/07/08 23:11:12 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= akSed
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp				\
+				search_and_replace.cpp	\
+				open_files.cpp
 
 BUILD		:= .build
 
