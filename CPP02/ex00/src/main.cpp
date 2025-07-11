@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 16:11:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/11 18:33:03 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/07/10 15:31:34 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/07/11 22:08:41 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include "Fixed.hpp"
 
-Weapon::Weapon(void)
+int main( void ) 
 {
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 	
-}
-
-Weapon::Weapon(std::string arms)
-{
-	_type = arms;
-}
-
-Weapon::~Weapon()
-{
-}
-
-const std::string &Weapon::getType(void) {
-	return (this->_type);
-}
-
-void	Weapon::setType(std::string type) {
-	_type = type;
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
+	return 0;
 }
