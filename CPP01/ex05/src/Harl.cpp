@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/10 23:53:17 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/07/12 21:58:31 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	Harl::complain(std::string level)
 	while (i < 4)
 	{
 		if (level == msg[i])
-			break ;
+			(this->*(arr[i]))();
 		i++;
 	}
-	if (i < 4)
-		(this->*(arr[i]))();
 }

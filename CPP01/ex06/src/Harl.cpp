@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/10 23:33:34 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/07/12 22:04:17 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,24 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	std::map<std::string, funcPtr> indexMap;
+	size_t		i;
+	funcPtr 	arr[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string	msg[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	indexMap["DEBUG"] = &Harl::debug;
-	indexMap["INFO"] = &Harl::info;
-	indexMap["WARNING"] = &Harl::warning;
-	indexMap["ERROR"] = &Harl::error;
-	
-	std::map<std::string, funcPtr>::iterator it = indexMap.find(level);
-	if (it != indexMap.end())
-		(this->*(it->second))();
+	i = 0;
+	while (i < 4)
+	{
+		if (level == msg[i])
+			(this->*(arr[i]))();
+		i++;
+	}
 }
 
 void	harlFilter(std::string level)
 {
-	size_t	i;
+	size_t		i;
 	std::string	arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	Harl	harl;
+	Harl		harl;
 
 	i = 0;
 	while (i < 4)
