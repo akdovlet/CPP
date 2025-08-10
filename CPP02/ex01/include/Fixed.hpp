@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/12 22:16:28 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/10 13:57:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ public:
 	Fixed();
 	Fixed(const int);
 	Fixed(const float);
-	Fixed(Fixed &cpy);
+	Fixed(const Fixed &cpy);
 	~Fixed();
 	float	toFloat(void) const;
 	int		toInt(void) const;
-	Fixed	&operator=(Fixed &);
+	Fixed	&operator=(const Fixed &);
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 };
