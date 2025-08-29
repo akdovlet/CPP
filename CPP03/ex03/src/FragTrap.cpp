@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:21:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 17:28:09 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 19:23:08 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,6 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 	// _hitPoints = other._hitPoints;
 	// _energyPoints = other._energyPoints;
 	// _attackDamage = other._attackDamage;
-}
-
-void	FragTrap::swap(FragTrap& other)
-{
-	unsigned int	tmp;
-
-	_name.swap(other._name);
-	tmp = _hitPoints;
-	_hitPoints = other._hitPoints;
-	other._hitPoints = tmp;
-	
-	tmp = _energyPoints;
-	_energyPoints = other._energyPoints;
-	other._energyPoints = tmp;
-
-	tmp = _attackDamage;
-	_attackDamage = other._attackDamage;
-	other._attackDamage = tmp;
 }
 
 // Using the copy-swap idiom for training and good habits purposes

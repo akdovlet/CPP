@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 12:57:44 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 17:26:49 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 19:31:59 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,6 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 	// _attackDamage = other._attackDamage;
 }
 
-void	ScavTrap::swap(ScavTrap& other)
-{
-	unsigned int	tmp;
-
-	_name.swap(other._name);
-	tmp = _hitPoints;
-	_hitPoints = other._hitPoints;
-	other._hitPoints = tmp;
-	
-	tmp = _energyPoints;
-	_energyPoints = other._energyPoints;
-	other._energyPoints = tmp;
-
-	tmp = _attackDamage;
-	_attackDamage = other._attackDamage;
-	other._attackDamage = tmp;
-}
-
 // Using the copy-swap idiom for training and good habits purposes
 // Causes the copy constructor to be called implicitely
 ScavTrap&	ScavTrap::operator=(ScavTrap other)
@@ -78,7 +60,7 @@ void	ScavTrap::attack(const std::string& target)
 	}
 	if (!_energyPoints)
 	{
-		std::cout << "ClaptTrap " << _name << " can't attack, no energy" << std::endl;
+		std::cout << "ScavTrap " << _name << " can't attack, no energy" << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap " << _name << " attacked " << target << " for " << _attackDamage << " damage" << std::endl;
