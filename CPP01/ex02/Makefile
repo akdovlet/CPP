@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/07/04 16:06:34 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/08/29 23:27:12 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,23 +23,23 @@ OBJ			:= $(patsubst $(SRC_DIR)/%.cpp, $(BUILD)/%.o, $(SRC))
 
 DEP			:= $(OBJ:.o=.d)
 
-CC			:= c++
+CXX := c++
 
 CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98 -MMD -MP -Iinclude
 
 $(BUILD):
 	@mkdir -p $(BUILD)
 
-all: create_dir $(NAME)
+all:  $(NAME)
 
-create_dir: | $(BUILD)
+
 
 $(NAME): $(OBJ)
-	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 $(BUILD)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(@D)
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(BUILD)
@@ -51,4 +51,4 @@ re: fclean all
 
 -include $(DEP)
 
-.PHONY: all clean fclean re create_dir
+.PHONY: all clean fclean re 
