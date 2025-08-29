@@ -6,27 +6,26 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/10 23:27:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 22:38:09 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <string>
-#include <map>
 #include <iostream>
 
 class Harl
 {
 private:
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
+	void	debug(void) const;
+	void	info(void) const;
+	void	warning(void) const;
+	void	error(void) const;
 public:
 	Harl();
 	~Harl();
-	void	complain(std::string level);
+	void	complain(const std::string& level);
 };
 
-typedef void (Harl::*funcPtr)();
+typedef void (Harl::*funcPtr)() const;
