@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:58 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/08/29 14:41:16 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/08/29 17:33:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef DIAMONDTRAP_H
+#define DIAMONDTRAP_H
+ 
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-#include <iostream>
-#include <stdint.h>
-
-class Fixed
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-	int				_value;
-	static const int	_frac;
+	std::string	_name;
 public:
-	Fixed();
-	Fixed(const Fixed &cpy);
-	Fixed	&operator=(const Fixed &fixed);
-	~Fixed();
+	DiamondTrap();
+	DiamondTrap(std::string name);
+	DiamondTrap(const DiamondTrap& other);
+	DiamondTrap& operator=(DiamondTrap other);
+	~DiamondTrap();
+
+	void swap(DiamondTrap& other);
 	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+	void	whoAmI() const;
+	void	getValues() const;
+	using	ScavTrap::attack;
 };
 
+#endif

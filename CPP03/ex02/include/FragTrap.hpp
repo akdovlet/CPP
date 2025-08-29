@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:58 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/08/29 14:21:13 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/08/29 14:38:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-#include <iostream>
-#include <stdint.h>
+# include "ClapTrap.hpp"
 
-class Fixed
+class FragTrap : public ClapTrap
 {
-private:
-	int				_value;
-	static const int	_frac;
 public:
-	Fixed();
-	Fixed(const Fixed &cpy);
-	Fixed	&operator=(const Fixed &fixed);
-	~Fixed();
-	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+	FragTrap();
+    FragTrap(std::string name);
+    FragTrap(const FragTrap& other);
+    FragTrap& operator=(FragTrap other);
+    ~FragTrap();
+
+	void	swap(FragTrap& other);
+
+	void	highFivesGuys(void);
 };
 
+#endif

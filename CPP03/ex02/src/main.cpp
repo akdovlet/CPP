@@ -5,32 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:31:34 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 15:50:39 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/08/28 10:29:32 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/08/29 14:38:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main( void ) {
+int main()
+{
+	ScavTrap a("ChadScav");
+	ScavTrap b;
+	FragTrap c;
 
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	b = a;
 
-	a = Fixed( 1234.4321f );
+	std::cout << b.getHP() << std::endl;
+	std::cout << b.getEP() << std::endl;
+	std::cout << b.getAD() << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	b.attack("some random");
+	b.beRepaired(100);
+	std::cout << b.getHP() << std::endl;
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << c.getHP() << std::endl;
+	std::cout << c.getEP() << std::endl;
+	std::cout << c.getAD() << std::endl;
+	c.highFivesGuys();
+	c.attack("your moma");
 
-	return 0;
+	return (0);
 }

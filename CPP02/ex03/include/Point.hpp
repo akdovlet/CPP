@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:58 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/08/27 17:23:10 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/08/27 22:07:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
+#include "Fixed.hpp"
 #include <iostream>
 #include <stdint.h>
+#include <cmath>
 
-class Fixed
+class Point
 {
 private:
-	int				_value;
-	static const int	_frac;
+	Fixed const _x;
+	Fixed const _y;
 public:
-	Fixed();
-	Fixed(const Fixed &cpy);
-	Fixed	&operator=(const Fixed &fixed);
-	~Fixed();
-	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+	Point();
+	Point(float x, float y);
+	Point(const Fixed &x, const Fixed &y);
+	Point(const Point &other);
+	~Point();
+	Fixed	getX() const;
+	Fixed	getY() const;
+	Point&	operator=(const Point &tmp);
 };
 
+bool	bsp(Point const a, Point const b, Point const c, Point const point);

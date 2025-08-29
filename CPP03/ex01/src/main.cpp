@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:58 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/08/28 10:29:32 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/08/29 14:18:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include <iostream>
-#include <stdint.h>
+#include "ScavTrap.hpp"
 
-class Fixed
+int main()
 {
-private:
-	int				_value;
-	static const int	_frac;
-public:
-	Fixed();
-	Fixed(const Fixed &cpy);
-	Fixed	&operator=(const Fixed &fixed);
-	~Fixed();
-	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
-};
+	ScavTrap a("ChadScav");
+	ScavTrap b;
 
+	b = a;
+
+	std::cout << b.getHP() << std::endl;
+	std::cout << b.getEP() << std::endl;
+	std::cout << b.getAD() << std::endl;
+
+	b.attack("some random");
+	b.beRepaired(100);
+	std::cout << b.getHP() << std::endl;
+
+	return (0);
+}
