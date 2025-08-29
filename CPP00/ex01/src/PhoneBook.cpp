@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:25:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/01 17:06:19 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 20:20:31 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void PhoneBook::search()
 		WhitePages[i].print_info(i + 1);
 	if (recover_index(index))
 	{
-		if (index - 1 < 9 && index - 1 < _count)
+		if (index - 1 < 8 && index - 1 < _count)
 			WhitePages[index - 1].print_full_info();
 		else
 			std::cout << "No such entry" << std::endl;		

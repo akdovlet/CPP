@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:16:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/01 15:58:03 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 20:06:49 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,16 @@ int get_value(std::string prompt, std::string &arg)
 			std::cerr << "Error: Field can not be empty, try again" << std::endl;
 			continue;
 		}
-		if (prompt != "phone number" && string_is_valid(arg))
-			return (0);
-		else if (prompt == "phone number" && number_is_valid(arg))
-			return (0);
 		else
-		{
-			std::cerr << "Error: Invalid format, try again" << std::endl;
-			continue ;
-		}
+			return (0);
 	}
 	return (1);
 }
 
 int		Contact::create(void)
 {
-	int			index;
 	std::string	buffer;
 
-	index = 0;
 	std::cout << "New contact form" << std::endl;
 	if (get_value("first name", Contact::_FirstName))
 		return (1);
