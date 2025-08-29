@@ -6,11 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:19:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/04 15:40:12 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 20:57:48 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <string>
 #include <iostream>
@@ -21,9 +23,9 @@ class	Zombie
 	public:
 	
 		Zombie();
-		Zombie(std::string name);
+		Zombie(const std::string &name);
 		~Zombie(void);
-		void	announce(void);
+		void	announce(void) const;
 
 		void setName(const std::string&);
 	
@@ -32,4 +34,6 @@ class	Zombie
 		std::string	_name;
 };
 
-Zombie	*zombieHorde(int N, std::string name);
+Zombie	*zombieHorde(int N, const std::string &name);
+
+#endif

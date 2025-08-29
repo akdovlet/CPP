@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:17:54 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/04 15:48:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:05:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 int	main(void)
 {
-	Zombie *Horde = zombieHorde(10, "Jeanne");
-	for (size_t i = 0; i < 10; i++)
+	const size_t	N = 10;
+
+	Zombie *Horde = zombieHorde(N, "Jeanne");
+	if (!Horde)
+		return (1);
+	
+	for (size_t i = 0; i < N; i++)
 		Horde[i].announce();
+
 	delete[] Horde;
 }

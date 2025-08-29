@@ -6,24 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 23:07:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/08 23:07:24 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 21:56:27 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "akSed.hpp"
-
-size_t	ak_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-			i++;
-	}
-	return (i);
-}
 
 void	search_and_replace(const std::string &toFind, const std::string &replace, std::string &buf)
 {
@@ -31,6 +18,8 @@ void	search_and_replace(const std::string &toFind, const std::string &replace, s
 	std::string		begin;
 	std::string		end;
 	
+	if (toFind.empty())
+		return ;
 	pos = buf.find(toFind);
 	while (pos != std::string::npos)
 	{

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:52:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/08 23:10:10 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 22:06:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,26 @@ int	main(int ac, char **av)
 	std::ifstream	infile;
 	std::ofstream 	outfile;
 	std::string		buffer;
+	const char		*filename;
+
 	
 	if (ac != 4)
 	{
 		std::cerr << "Error: Invalid arguments" << std::endl;
 		return (1);
 	}
-	if (!open_files(av, infile, outfile))
+	const std::string		toFind(av[2]);
+	const std::string		replace(av[3]);
+	filename = av[1];
+	if (!open_files(filename, infile, outfile))
 		return (1);
 	while (getline(infile, buffer))
 	{
-		search_and_replace(av[2], av[3], buffer);
-		outfile << buffer << "\n";
+		search_and_replace(toFind, replace, buffer);
+		outfile << buffer;
+		if (infile.peek() != EOF)
+			outfile << std::endl;
 	}
+	infile.close();
+	outfile.close();
 }
