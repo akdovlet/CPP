@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:21:13 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 14:38:33 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 19:23:47 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ public:
     FragTrap(const FragTrap& other);
     FragTrap& operator=(FragTrap other);
     ~FragTrap();
-
-	void	swap(FragTrap& other);
 
 	void	highFivesGuys(void);
 };

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:29:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 17:47:32 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 18:49:57 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ public:
 
 	void		swap(ClapTrap& other);
 	
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
+	virtual void	attack(const std::string& target);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
 
 	std::string		getName();
 	unsigned int	getHP();

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 12:57:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 17:52:19 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 19:23:51 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ public:
 	ScavTrap& operator=(ScavTrap other);
 	~ScavTrap();
 
-	void	swap(ScavTrap& other);
-	
 	void attack(const std::string& target);
 	void guardGate();
 };
