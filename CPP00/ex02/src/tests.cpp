@@ -12,7 +12,7 @@
 #include <functional>
 #include "Account.hpp"
 
-
+// awk '{$1="";print}'
 int		main( void ) {
 
 	typedef std::vector<Account::t>							  accounts_t;
