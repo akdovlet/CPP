@@ -6,14 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 17:23:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 22:07:33 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:14:51 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
-#include <stdint.h>
-#include <cmath>
 
 class Point
 {

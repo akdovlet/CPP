@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:58 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 23:37:56 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,11 @@ Fixed::Fixed(float const val) : _value(static_cast<int>(roundf(val * (1 << _frac
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(Fixed tmp)
+Fixed	&Fixed::operator=(const Fixed& other)
 {
-	int	tmp_val;
-
 	std::cout << "Copy assignment operator called" << std::endl;
-	tmp_val = _value;
-	_value = tmp._value;
-	tmp._value = tmp_val;
+	if (this != &other)
+		_value = other._value;
 	return (*this);
 }
 
@@ -65,7 +62,6 @@ int		Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	_value = raw;
 }
 

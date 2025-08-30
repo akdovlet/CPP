@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:31:34 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 22:05:59 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:16:46 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include <limits.h>
 
 int main() {
     std::cout << "=== Testing Exercise 00: Canonical Form and Raw Bits ===" << std::endl;
@@ -92,7 +93,7 @@ int main() {
         Fixed maxInt(2147483647);  // INT_MAX
         std::cout << "INT_MAX: " << maxInt << " (expected 2147483647)" << std::endl;
 
-        Fixed minInt(INT32_MIN);  // INT_MIN
+        Fixed minInt(INT_MIN);  // INT_MIN
         std::cout << "INT_MIN: " << minInt << " (expected -2147483648)" << std::endl;
 
         // Large float (may overflow internally, but test conversion)

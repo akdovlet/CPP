@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 17:17:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 23:56:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,12 @@ Fixed::~Fixed()
 {
 }
 
-
 // Operators
 
-Fixed	&Fixed::operator=(Fixed tmp)
+Fixed	&Fixed::operator=(const Fixed& other)
 {
-	int	tmp_val;
-
-	tmp_val = _value;
-	_value = tmp._value;
-	tmp._value = tmp_val;
+	if (this != &other)
+		_value = other._value;
 	return (*this);
 }
 
@@ -106,9 +102,9 @@ Fixed	Fixed::operator-(const Fixed& other) const
 Fixed	Fixed::operator*(const Fixed& other) const
 {
 	Fixed	result;
-	long	long_tmp;
+	long long	long_tmp;
 	
-	long_tmp = static_cast<long>(_value);
+	long_tmp = static_cast<long long>(_value);
 	result._value = static_cast<int>((long_tmp * other._value) >> _frac);
 	return result;
 }
@@ -116,19 +112,12 @@ Fixed	Fixed::operator*(const Fixed& other) const
 Fixed	Fixed::operator/(const Fixed& other) const
 {
 	Fixed	result;
-	long	long_tmp;
+	long long	long_tmp;
 	
-	try
-	{
-		if (other._value == 0)
-			throw std::overflow_error("Divide by zero exception");
-	}
-	catch(const std::overflow_error& e)
-	{
-		std::cerr << e.what() << " -> ";
-		std::cerr << *this << std::endl;
-	}
-	long_tmp = static_cast<long>(_value);
+
+	if (other._value == 0)
+		throw std::runtime_error("Divide by zero exception");
+	long_tmp = static_cast<long long>(_value);
 	result._value = static_cast<int>((long_tmp << _frac) / other._value);
 	return result;
 }

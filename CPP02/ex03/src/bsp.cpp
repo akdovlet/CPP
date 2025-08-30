@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 17:22:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 21:57:13 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:24:12 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Fixed	cross(const Point &a, const Point &b, const Point &c)
 {
 	return ((b.getX() - a.getX()) * (c.getY() - a.getY()) -
-             (c.getX() - a.getX()) * (b.getY() - a.getY()));
+			 (c.getX() - a.getX()) * (b.getY() - a.getY()));
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
@@ -34,8 +34,8 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 		return (false);
 	
 	if (crossPBC.abs() == Fixed(0) || crossPCA.abs() == Fixed(0) || crossPAB.abs() == Fixed(0))
-        return false;
+		return false;
 	
 	Fixed sumABS = crossPBC.abs() + crossPCA.abs() + crossPAB.abs();
-	return (sumABS == crossABC.abs());
+	return (sumABS - crossABC.abs() < Fixed(0.0039f));
 }

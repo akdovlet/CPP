@@ -6,15 +6,15 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/27 16:05:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/08/29 23:47:50 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
-#include <stdint.h>
-#include <cmath>
 
 class Fixed
 {
@@ -26,7 +26,7 @@ public:
 	Fixed(const int);
 	Fixed(const float);
 	Fixed(const Fixed &cpy);
-	Fixed	&operator=(Fixed tmp);
+	Fixed	&operator=(const Fixed& other);
 	~Fixed();
 
 	float	toFloat(void) const;
@@ -36,3 +36,5 @@ public:
 };
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &fixed);
+
+#endif
