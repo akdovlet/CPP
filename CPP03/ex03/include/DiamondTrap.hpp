@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:41:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 17:33:00 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:50:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+
 #ifndef DIAMONDTRAP_H
 #define DIAMONDTRAP_H
  

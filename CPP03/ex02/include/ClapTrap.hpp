@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:29:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 13:48:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:50:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
 

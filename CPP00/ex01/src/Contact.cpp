@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:16:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 20:06:49 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:14:53 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ bool	string_is_valid(std::string str)
 	i = 0;
 	while (i < str.size())
 	{
-		if (std::isalnum(str[i]))
+		if (!notempty && std::isalnum(str[i]))
 			notempty = true;
-		if (!std::isalnum(str[i]) && !std::isspace(str[i]))
+		if (!std::isalnum(str[i]) && !std::isspace(str[i]) && str[i] != '-')
 			return (false);
 		i++;
 	}
@@ -44,13 +44,15 @@ bool	number_is_valid(std::string str)
 	count = 0;
 	while (str[i] && std::isspace(str[i]))
 		i++;
-	if (str[i++] != '+')
+	if (str[i] != '+' && !std::isdigit(str[i]))
 		return (false);
+	if (std::isdigit(str[i++]))
+		count++;
 	while (i < str.size())
 	{
 		if (std::isdigit(str[i]))
 			count++;
-		if (!std::isdigit(str[i]) && !std::isspace(str[i]))
+		else if (!std::isspace(str[i]))
 			return (false);
 		i++;
 	}
@@ -77,8 +79,15 @@ int get_value(std::string prompt, std::string &arg)
 			std::cerr << "Error: Field can not be empty, try again" << std::endl;
 			continue;
 		}
-		else
+		if (prompt != "phone number" && string_is_valid(arg))
 			return (0);
+		else if (prompt == "phone number" && number_is_valid(arg))
+			return (0);
+		else
+		{
+			std::cerr << "Error: Invalid format, try again" << std::endl;
+			continue ;
+		}
 	}
 	return (1);
 }

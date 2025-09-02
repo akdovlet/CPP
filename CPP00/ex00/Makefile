@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 18:07:01 by akdovlet          #+#    #+#              #
-#    Updated: 2025/08/29 23:27:12 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/02 18:49:27 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ $(BUILD):
 	@mkdir -p $(BUILD)
 
 all:  $(NAME)
-
-
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)

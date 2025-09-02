@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:29:42 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/06/27 16:07:08 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/02 18:57:39 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 #include <string>
@@ -32,8 +33,5 @@ private:
 	Contact	WhitePages[8];
 };
 
-// #include "maclasse.hpp"
 
-// void PhoneBook::mabite(){
-// 	std::cout << "hello " << std::endl;
-// }
+#endif

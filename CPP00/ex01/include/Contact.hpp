@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:50:37 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/07/01 15:00:31 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/02 18:56:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <string>
 #include <iostream>
@@ -28,3 +29,5 @@ class	Contact
 		std::string	_PhoneNumber;
 		std::string	_Secret;
 };
+
+#endif

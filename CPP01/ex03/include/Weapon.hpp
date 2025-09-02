@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 16:10:40 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 21:19:32 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:50:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
