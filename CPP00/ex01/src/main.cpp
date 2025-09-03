@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:25:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/03 13:04:01 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:07:43 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
 	PhoneBook	PB;
 	std::string	buffer;
 
-	std::cout	<< "PhoneBook 1.07.1\n"
+	std::cout	<< "PhoneBook 1.08\n"
 				<< "Copyright 1998 AK Software\n"
 				<< "Commands: ADD, SEARCH, EXIT\n" << std::endl;
 				

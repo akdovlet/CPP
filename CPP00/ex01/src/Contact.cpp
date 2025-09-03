@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:16:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/03 15:32:06 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:04:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ std::string	replaceWhiteSpace(const std::string& str)
 	return (cleanStr);
 }
 
-int get_value(std::string prompt, std::string &arg)
+int	get_value(std::string prompt, std::string &arg)
 {
 	std::string	buffer;
 
