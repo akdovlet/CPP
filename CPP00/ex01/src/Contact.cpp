@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:16:01 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/02 19:14:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/03 15:32:06 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,54 @@ bool	number_is_valid(std::string str)
 	return (false);
 }
 
+//	Checks if the string has trailing whitespaces as such "trailing whitespaces			" <-returns true
+bool	findTrailingWs(const std::string &str, std::string::const_iterator it)
+{
+	while (it != str.end())
+	{
+		if (!std::isspace(*it))
+			return (false);
+		it++;
+	}
+	return (true);
+}
+
+// Function will turn this "   			random			string			" into this "random string"
+std::string	replaceWhiteSpace(const std::string& str)
+{
+	std::string					cleanStr;
+	std::string::const_iterator	it;
+	bool						previousIsWs;
+
+	previousIsWs = false;
+	it = str.begin();
+	while (it != str.end())
+	{
+		if (!std::isspace(*it))
+			break ;
+		it++;
+	}
+	while (it != str.end())
+	{
+		if (!std::isspace(*it))
+			cleanStr += *it;
+		else if (!previousIsWs && !findTrailingWs(str, it))
+			cleanStr += ' ';
+		previousIsWs = std::isspace(*it);
+		it++;
+	}
+	std::cout << "cleanStr: " << cleanStr << std::endl;
+	return (cleanStr);
+}
+
 int get_value(std::string prompt, std::string &arg)
 {
+	std::string	buffer;
+
 	while (1)
 	{
 		std::cout << "Enter " << prompt << ": " << std::flush;
-		getline(std::cin, arg);
+		getline(std::cin, buffer);
 		if (std::cin.fail())
 		{
 			std::clearerr(stdin);
@@ -74,11 +116,12 @@ int get_value(std::string prompt, std::string &arg)
 			std::cout << "\n";
 			break ;
 		}
-		if (arg.empty())
+		if (buffer.empty())
 		{
 			std::cerr << "Error: Field can not be empty, try again" << std::endl;
 			continue;
 		}
+		arg = replaceWhiteSpace(buffer);
 		if (prompt != "phone number" && string_is_valid(arg))
 			return (0);
 		else if (prompt == "phone number" && number_is_valid(arg))

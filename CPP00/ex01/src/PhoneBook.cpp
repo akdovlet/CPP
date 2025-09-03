@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:25:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 20:20:31 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:04:38 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool	recover_index(size_t &index)
 	while (1)
 	{
 		std::cout << "Enter index: " << std::flush;
-		getline(std::cin, buffer);
+		getline(std::cin >> std::ws, buffer);
 		if (std::cin.fail())
 		{
 			std::clearerr(stdin);

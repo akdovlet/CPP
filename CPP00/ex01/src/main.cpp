@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:25:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/02 19:30:22 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:04:01 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
 	while (1)
 	{
 		std::cout << "Main menu: " << std::flush;
-		getline(std::cin,buffer);
+		getline(std::cin >> std::ws,buffer);
 		if (std::cin.fail() || buffer == "EXIT")
 		{
 			std::cout << "exit" << std::endl;
