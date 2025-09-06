@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:31:34 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 23:56:35 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/04 18:34:45 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main( void ) {
 	std::cout << a + b * 2 << std::endl;
 	std::cout << d + e << std::endl;
 	
-	std::cout << a / c << std::endl;
+	std::cout << Fixed(3) / Fixed(2) << std::endl;
 	
 	return 0;
 }

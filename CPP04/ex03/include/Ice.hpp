@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:11:07 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 17:13:53 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/04 16:43:24 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/04 16:44:25 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef CURE_HPP
+#define CURE_HPP
 
-int main()
+#include "AMateria.hpp"
+
+class Ice
 {
-	Cure cure("randomshit");
+private:
+	/* data */
+public:
+	Ice(/* args */);
+	~Ice();
+};
+
+Ice::Ice(/* args */)
+{
 }
+
+Ice::~Ice()
+{
+}
+
+
+#endif

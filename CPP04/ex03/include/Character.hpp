@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:11:07 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 17:13:53 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/04 16:51:22 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/04 17:00:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-int main()
+class Character
 {
-	Cure cure("randomshit");
+private:
+	/* data */
+public:
+	Character(/* args */);
+	Character(const Character& other);
+	Character&	operator=(Character other);
+	~Character();
+};
+
+Character::Character()
+{
 }
+
+Character::~Character()
+{
+}
+
+
+#endif

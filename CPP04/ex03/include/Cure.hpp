@@ -1,18 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:11:07 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 17:13:53 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/04 16:42:56 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/04 17:13:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef CURE_HPP
+#define CURE_HPP
 
-int main()
+#include <string>
+
+class Cure
 {
-	Cure cure("randomshit");
+private:
+	std::string _value;
+public:
+	virtual int	getValue() = 0;
+	Cure(/* args */);
+	Cure(std::string& value);
+	~Cure();
+};
+
+Cure::Cure(/* args */)
+{
 }
+
+Cure::Cure(std::string &value) : _value(value)
+{
+}
+
+Cure::~Cure()
+{
+}
+
+
+#endif

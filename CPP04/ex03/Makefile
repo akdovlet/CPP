@@ -6,14 +6,14 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/03 20:01:59 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/04 17:11:37 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= Abstract
 
 SRC_DIR		:=	src
-SRC			:=	main.c
+SRC			:=	main.cpp
 
 BUILD		:= .build
 
