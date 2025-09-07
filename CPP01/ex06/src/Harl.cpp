@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 23:01:35 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 21:28:28 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
 const std::string Harl::levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 

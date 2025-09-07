@@ -6,10 +6,9 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 16:37:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/01 15:50:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 17:18:46 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef HUMANB_HPP
 #define HUMANB_HPP

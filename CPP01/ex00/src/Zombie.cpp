@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:23:48 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 20:49:52 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 17:04:57 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 void	Zombie::announce(void)
 {

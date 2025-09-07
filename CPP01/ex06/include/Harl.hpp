@@ -6,14 +6,14 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:27:41 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/01 15:50:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 22:00:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
-#include <iostream>
 
 class Harl
 {
@@ -22,6 +22,8 @@ private:
 	void	info(void) const;
 	void	warning(void) const;
 	void	error(void) const;
+	typedef void (Harl::*funcPtr)() const;
+	// using	funcPtr = void (Harl::*)() const;
 public:
 	static const std::string levels[4];
 	Harl();
@@ -31,4 +33,4 @@ public:
 
 void	harlFilter(const std::string& level);
 
-typedef void (Harl::*funcPtr)() const;
+#endif

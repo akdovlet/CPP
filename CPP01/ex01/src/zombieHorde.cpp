@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 20:56:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 17:11:49 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 Zombie	*zombieHorde(int N, const std::string &name)
 {

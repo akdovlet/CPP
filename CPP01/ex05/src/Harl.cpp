@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 22:39:34 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/07 20:24:43 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
 Harl::Harl(){
 }
@@ -25,8 +26,8 @@ void	Harl::debug(void) const
 
 void	Harl::info(void) const
 {
-	std::cout << "Oh you think this is funny? That guy might never walk again." << std::endl;
-	std::cout << "And for what? Cause he didn't duke you enough? Cause he didn't visit you in the can?" << std::endl;
+	std::cout << "Oh you think this is funny? That guy might never walk again.\n"
+	<< "And for what? Cause he didn't duke you enough? Cause he didn't visit you in the can?" << std::endl;
 }
 
 void	Harl::warning(void) const
