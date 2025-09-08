@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:52:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/07 19:47:30 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/08 16:02:15 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	{
 		search_and_replace(toFind, replace, buffer);
 		outfile << buffer;
-		if (infile.peek() != EOF)
+		if (!infile.eof() && !infile.fail())
 			outfile << std::endl;
 	}
 	infile.close();
