@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 17:23:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/30 00:14:51 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:13:05 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ public:
 };
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);
+Fixed	cross(const Point &a, const Point &b, const Point &c);

@@ -6,9 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/08/30 00:12:36 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/09 16:45:05 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# -fsanitize=undefined for UB
 
 NAME		:= Fixed
 
@@ -28,7 +30,7 @@ DEP			:= $(OBJ:.o=.d)
 
 CXX := c++
 
-CXXFLAGS	:= -fsanitize=undefined -Wall -Werror -Wextra -std=c++98 -MMD -MP -Iinclude
+CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98 -MMD -MP -Iinclude
 
 $(BUILD):
 	@mkdir -p $(BUILD)

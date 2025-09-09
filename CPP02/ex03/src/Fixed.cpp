@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/30 00:17:39 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/09 16:37:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 const int Fixed::_frac = 8;
 
-
 // Ctors & Dtor
-
 Fixed::Fixed() : _value(0)
 {
 }
@@ -31,14 +29,13 @@ Fixed::Fixed(int const val) : _value(val << _frac)
 {
 }
 
-Fixed::Fixed(float const val) : _value(static_cast<int>(roundf(val * (1 << _frac))))
+Fixed::Fixed(float const val) : _value(roundf(val * (1 << _frac)))
 {
 }
 
 Fixed::~Fixed()
 {
 }
-
 
 // Operators
 
@@ -89,7 +86,7 @@ Fixed	Fixed::operator+(const Fixed& other) const
 {
 	Fixed	result;
 
-	result._value = static_cast<int>(static_cast<long long>(_value + other._value));
+	result._value = static_cast<int>(static_cast<long long int>(_value + other._value));
 	return (result);
 }
 
@@ -103,29 +100,29 @@ Fixed	Fixed::operator-(const Fixed& other) const
 {
 	Fixed	result;
 
-	result._value = static_cast<int>(static_cast<long long>(_value - other._value));
+	result._value = static_cast<int>(static_cast<long long int>(_value - other._value));
 	return (result);
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const
 {
 	Fixed	result;
-	long long	long_tmp;
+	long long int	long_tmp;
 	
-	long_tmp = static_cast<long long>(_value);
-	result._value = static_cast<int>((long_tmp * static_cast<long long>(other._value)) >> _frac);
+	long_tmp = static_cast<long long int>(_value);
+	result._value = static_cast<int>((long_tmp * static_cast<long long int>(other._value)) >> _frac);
 	return result;
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const
 {
 	Fixed		result;
-	long long	long_tmp;
+	long long int	long_tmp;
 	
 
 	if (other._value == 0)
 		throw std::runtime_error("Divide by zero exception");
-	long_tmp = static_cast<long long>(_value);
+	long_tmp = static_cast<long long int>(_value);
 	result._value = static_cast<int>((long_tmp << _frac) / other._value);
 	return result;
 }
