@@ -6,26 +6,23 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:24:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/02 20:36:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:28:11 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal(), _brain(new Brain())
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	_type = "Cat";
-	_brain = new Brain();
 }
 
-Cat::Cat(const Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	_type = "Cat";
-	_brain = new Brain();
-	_brain = other._brain;
 }
 
 Cat&	Cat::operator=(const Cat& other)

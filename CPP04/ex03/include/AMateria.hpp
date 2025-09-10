@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 20:05:32 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 18:25:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:59:22 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define AMATERIA_HPP
 
 #include <string>
+
+class ICharacter;
 
 class AMateria
 {

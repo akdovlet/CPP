@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:31:05 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/03 19:39:30 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:44:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int main()
 {
 	{
+		Dog doggo(doggo);
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();

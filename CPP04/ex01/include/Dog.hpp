@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:05:30 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/03 18:45:07 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:45:29 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 	Brain	*_brain;
 public:
 	Dog();
-	Dog(const Dog& cat);
+	Dog(const Dog& other);
 	Dog&	operator=(const Dog& other);
 	~Dog();
 	
