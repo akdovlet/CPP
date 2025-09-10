@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:29:46 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 18:45:08 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:10:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 ClapTrap::ClapTrap() : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -40,7 +41,7 @@ void	ClapTrap::swap(ClapTrap& other)
 	other._attackDamage = tmp;
 }
 
-// Using the copy-swap idiom for training and good habits purposes
+// Using the copy-swap idiom for training and good habits purpose
 // Causes the copy constructor to be called implicitely
 ClapTrap&	ClapTrap::operator=(ClapTrap other)
 {

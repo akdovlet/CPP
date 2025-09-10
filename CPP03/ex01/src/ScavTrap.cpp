@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 12:57:44 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 19:24:11 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:03:11 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include <iostream>
 
 ScavTrap::ScavTrap()
 {

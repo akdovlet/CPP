@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:29:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/08 19:09:58 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:10:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CLAPTRAP_H
 
 #include <string>
-#include <iostream>
 
 class ClapTrap
 {
