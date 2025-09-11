@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:24:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/10 17:28:11 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/11 18:53:04 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
 	_type = "Cat";
 }
 
-Cat&	Cat::operator=(const Cat& other)
+void	Cat::swap(Cat& lha, Cat& rha)
+{
+	using std::swap;
+	swap(lha._brain, rha._brain);
+}
+
+Cat&	Cat::operator=(Cat other)
 {
 	std::cout << "Cat assignment operator called" << std::endl;
-	if (this != &other)
-	{
-		_type = other._type;
-		_brain = new Brain();
-		_brain = other._brain;
-	}
+	swap(*this, other);
 	return (*this);
 }
 
@@ -46,4 +47,14 @@ Cat::~Cat()
 void	Cat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
+}
+
+void	Cat::putIdea(const std::string& str, const int index)
+{
+	_brain->putIdea(str, index);
+}
+
+const std::string	Cat::getIdea(const int index) const
+{
+	return (_brain->getIdea(index));
 }

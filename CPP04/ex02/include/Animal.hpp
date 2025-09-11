@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:05:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 15:01:45 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/11 18:41:09 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ class Animal
 {
 protected:
 	std::string	_type;
+	
 	Animal();
 	Animal(const Animal& animal);
-	virtual Animal&	operator=(const Animal& other);
+	Animal&	operator=(const Animal& other);
 	virtual				~Animal();
+
 public:
 	virtual void		makeSound() const = 0;
 	const std::string&	getType() const;

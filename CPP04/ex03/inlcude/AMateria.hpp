@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:42:56 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 17:13:37 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/11 19:58:51 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/11 20:07:31 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
 #include <string>
 
-class Cure
+class ICharacter;
+
+class AMateria
 {
 private:
-	std::string _value;
+	std::string	_type;
 public:
-	virtual int	getValue() = 0;
-	Cure(/* args */);
-	Cure(std::string& value);
-	~Cure();
+	AMateria();
+	AMateria(std::string const &type);
+	AMateria(const AMateria& other);
+	AMateria& operator=(const AMateria& other);
+	~AMateria();
+
+	const std::string &getType() const;
+
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 };
 
-Cure::Cure(/* args */)
+AMateria::AMateria()
 {
 }
 
-Cure::Cure(std::string &value) : _value(value)
-{
-}
-
-Cure::~Cure()
+AMateria::~AMateria()
 {
 }
 

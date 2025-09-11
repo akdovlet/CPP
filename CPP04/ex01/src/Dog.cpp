@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:25:28 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/10 17:31:02 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:26:35 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ Dog::Dog(const Dog& other) : Animal(other), _brain(new Brain(*other._brain))
 	_type = "Dog";
 }
 
-Dog&	Dog::operator=(const Dog& other)
+void	Dog::swap(Dog& lha, Dog& rha)
+{
+	using std::swap;
+	swap(lha._brain, rha._brain);
+}
+
+Dog&	Dog::operator=(Dog other)
 {
 	std::cout << "Dog assignment operator called" << std::endl;
-	if (this != &other)
-	{
-		_type = other._type;
-		_brain = new Brain();
-		_brain = other._brain;
-	}
+	swap(*this, other);
 	return (*this);
 }
 
