@@ -6,14 +6,18 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/04 17:11:37 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/12 20:49:10 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Abstract
+NAME		:= Materia
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp	\
+				AMateria.cpp	\
+				Character.cpp	\
+				Cure.cpp		\
+				Ice.cpp
 
 BUILD		:= .build
 

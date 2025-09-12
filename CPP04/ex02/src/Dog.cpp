@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:25:28 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/11 19:05:30 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/12 20:46:46 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Dog::Dog(const Dog& other) : Animal(other), _brain(new Brain(*other._brain))
 	_type = "Dog";
 }
 
-void	Dog::swap(Dog& lha, Dog& rha)
+inline void	Dog::swap(Dog& lha, Dog& rha)
 {
 	using std::swap;
 	swap(lha._brain, rha._brain);

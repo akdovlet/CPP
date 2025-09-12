@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:05:30 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/11 19:06:04 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/12 20:46:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Dog : public Animal
 private:
 	Brain	*_brain;
 
-	void	swap(Dog& lha, Dog& rha);
+	inline void	swap(Dog& lha, Dog& rha);
 public:
 	Dog();
 	Dog(const Dog& cat);

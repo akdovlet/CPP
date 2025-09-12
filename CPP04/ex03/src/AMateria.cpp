@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:03:31 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/04 16:26:43 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/12 21:32:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ AMateria::AMateria(std::string const& type) : _type(type)
 {
 }
 
-AMateria::AMateria(const AMateria& other)
+AMateria::AMateria(const AMateria& other) : _type(other._type)
 {
 }
 
 AMateria&	AMateria::operator=(const AMateria& other)
 {
-	if (this != &other)
-	{
-		_type = other._type;
-	}
+	(void)other;
 	return (*this);
 }
 
@@ -42,8 +39,12 @@ std::string const &AMateria::getType() const
 	return (_type);
 }
 
-
 void AMateria::use(ICharacter& target)
 {
-	
+	(void)target;
 }
+
+// void AMateria::use(ICharacter& target)
+// {
+// 	(void)target;
+// }

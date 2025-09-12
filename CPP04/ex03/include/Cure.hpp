@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 20:49:22 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/12 20:50:21 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/12 19:20:44 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/12 19:26:15 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
+#ifndef CURE_HPP
+#define CURE_HPP
 
-int main()
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
+
+class Cure : public AMateria
 {
-	return (0);
-}
+private:
+
+public:
+	Cure();
+	Cure(const Cure& other);
+	Cure&	operator=(const Cure& other);
+	~Cure();
+
+	Cure*	clone() const;
+	void	use(ICharacter& target);
+};
+
+
+#endif

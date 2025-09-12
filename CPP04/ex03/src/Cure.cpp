@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 20:49:22 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/12 20:50:21 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/12 19:26:22 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/12 21:00:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "Character.hpp"
 #include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
 
-int main()
+Cure::Cure() : AMateria("Cure")
 {
-	return (0);
+}
+
+Cure::Cure(const Cure& other) : AMateria(other)
+{
+}
+
+Cure& Cure::operator=(const Cure& other)
+{
+	(void)other;
+	return (*this);
+}
+
+Cure::~Cure()
+{
+}
+
+Cure* Cure::clone() const
+{
+	return (new Cure(*this));
+}
+
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
