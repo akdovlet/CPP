@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 19:26:22 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/13 19:43:55 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/13 12:39:59 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/13 12:42:21 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-Cure::Cure() : AMateria("cure")
-{
-}
+#include <string>
+#include "AMateria.hpp"
 
-Cure::Cure(const Cure& other) : AMateria(other)
+class IMateriaSource
 {
-}
+public:
+	virtual ~IMateriaSource() {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual	AMateria* createMateria(std::string const& type) = 0;
+};
 
-Cure& Cure::operator=(const Cure& other)
-{
-	(void)other;
-	return (*this);
-}
-
-Cure::~Cure()
-{
-}
-
-Cure* Cure::clone() const
-{
-	return (new Cure(*this));
-}
-
-void	Cure::use(ICharacter& target)
-{
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-}
+#endif

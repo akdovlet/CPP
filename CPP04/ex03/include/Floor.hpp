@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 19:26:22 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/13 19:43:55 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/13 20:05:44 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/13 20:05:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "AMateria.hpp"
 
-Cure::Cure() : AMateria("cure")
+struct Floor
 {
-}
+	/* data */
+};
 
-Cure::Cure(const Cure& other) : AMateria(other)
-{
-}
-
-Cure& Cure::operator=(const Cure& other)
-{
-	(void)other;
-	return (*this);
-}
-
-Cure::~Cure()
-{
-}
-
-Cure* Cure::clone() const
-{
-	return (new Cure(*this));
-}
-
-void	Cure::use(ICharacter& target)
-{
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-}

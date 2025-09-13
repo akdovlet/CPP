@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/12 20:49:10 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/13 19:38:43 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC			:=	main.cpp	\
 				AMateria.cpp	\
 				Character.cpp	\
 				Cure.cpp		\
-				Ice.cpp
+				Ice.cpp			\
+				MateriaSource.cpp
 
 BUILD		:= .build
 
