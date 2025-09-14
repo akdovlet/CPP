@@ -6,12 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 19:38:06 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/13 19:48:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/15 00:10:48 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "MateriaSource.hpp"
+#include <iostream>
 
 MateriaSource::MateriaSource() : IMateriaSource()
 {
@@ -49,16 +50,20 @@ MateriaSource&	MateriaSource::operator=(MateriaSource other)
 	return (*this);
 }
 
-void	MateriaSource::learnMateria(AMateria *other)
+void	MateriaSource::learnMateria(AMateria *materia)
 {
+	if (!materia)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (!_source[i])
 		{
-			_source[i] = other;
+			_source[i] = materia;
 			return ;
 		}
 	}
+	std::cout << "Can't learn any more spells: Materia lost" << std::endl;
+	delete materia;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const &type)

@@ -6,11 +6,12 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:03:31 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/13 13:01:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/14 23:23:25 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include <iostream>
 
 AMateria::AMateria()
 {

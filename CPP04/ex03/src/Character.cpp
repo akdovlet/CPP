@@ -6,11 +6,14 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 19:33:42 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/13 19:54:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/14 23:44:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <iostream>
+
+Floor Character::floor;
 
 Character::Character() : ICharacter(), _name("Anon")
 {
@@ -23,7 +26,11 @@ Character::Character(const Character& other) : ICharacter(other), _name(other._n
 	for (int i = 0; i < 4; i++)
 	{
 		if (other._inventory[i])
-			_inventory[i] = other._inventory[i];
+		{
+			_inventory[i] = other._inventory[i]->clone();
+		}
+		else
+			_inventory[i] = NULL;
 	}
 }
 
@@ -59,13 +66,19 @@ void	Character::equip(AMateria* m)
 		return ;
 	for (int i = 0; i < 4; i++)
 	{
+		if (m == _inventory[i])
+		{
+			std::cout << "Item already equiped" << std::endl;
+			return ;
+		}
 		if (!_inventory[i])
 		{
-			_inventory[i] = m->clone();
-			delete m;
+			_inventory[i] = m;
 			return ;
 		}
 	}
+	std::cout << "Inventory full: Materia lost" << std::endl;
+	delete m;
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -83,7 +96,18 @@ void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && _inventory[idx])
 	{
+		floor.insertAtBeginning(&floor._head, _inventory[idx]);
 		_inventory[idx] = NULL;
 	}
+}
+
+AMateria*	Character::pickUpItem(const std::string type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (!_inventory[i])
+			return (floor.pickUpItem(type));
+	}
+	return (NULL);
 }
 

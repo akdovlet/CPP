@@ -6,11 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/03 19:41:23 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/15 00:51:04 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Abstract
+NAME		:= abstract
 
 SRC_DIR		:=	src
 SRC			:=	Animal.cpp	\

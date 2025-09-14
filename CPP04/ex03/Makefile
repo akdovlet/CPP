@@ -6,11 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/13 19:38:43 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/15 00:51:39 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Materia
+NAME		:= materia
 
 SRC_DIR		:=	src
 SRC			:=	main.cpp	\
@@ -18,7 +18,9 @@ SRC			:=	main.cpp	\
 				Character.cpp	\
 				Cure.cpp		\
 				Ice.cpp			\
-				MateriaSource.cpp
+				MateriaSource.cpp	\
+				mList.cpp			\
+				Floor.cpp
 
 BUILD		:= .build
 
@@ -30,7 +32,7 @@ DEP			:= $(OBJ:.o=.d)
 
 CXX := c++
 
-CXXFLAGS	:= -Wall -Werror -Wextra -Wshadow -std=c++98 -MMD -MP -Iinclude -g
+CXXFLAGS	= -Wall -Werror -Wextra -Wshadow -std=c++98 -MMD -MP -Iinclude -g
 
 $(BUILD):
 	@mkdir -p $(BUILD)
@@ -51,6 +53,11 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+debug: fclean debug_compile
+	
+debug_compile: CXXFLAGS+= -g -D DEBUG=1
+debug_compile: all;
 
 -include $(DEP)
 

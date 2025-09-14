@@ -6,11 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/02 15:58:12 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/15 00:40:20 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= Actaeon
+NAME		:= actaeon
 
 SRC_DIR		:=	src
 SRC			:=	Animal.cpp	\

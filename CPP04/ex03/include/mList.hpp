@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Floor.hpp                                          :+:      :+:    :+:   */
+/*   mList.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 20:08:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/14 23:05:56 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/13 20:05:44 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/14 20:54:29 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLOOR_HPP
-#define FLOOR_HPP
+#ifndef MLIST_HPP
+#define MLIST_HPP
 
 #include "AMateria.hpp"
-#include "mList.hpp"
 
-class Floor
+class mList
 {
 public:
-	mList	*_head;
-	Floor();
-	Floor(const Floor& other);
-	Floor& operator=(Floor other);
-	~Floor();
+	AMateria	*_materia;
+	mList		*_next;
 	
-	void swap(Floor& left, Floor &right);
-	void insertAtBeginning(mList **head, AMateria* materia);
-	AMateria*	pickUpItem(const std::string type);
+	mList();
+	mList(AMateria *materia);
+	mList(const mList& other);
+	mList& operator=(mList other);
+	~mList();
+	
+	void swap(mList& left, mList &right);
 };
 
 #endif

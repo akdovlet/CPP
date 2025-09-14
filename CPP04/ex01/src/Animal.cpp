@@ -6,14 +6,14 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:07:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/02 15:54:20 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/15 00:44:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal() : _type("")
+Animal::Animal() : _type("Creature")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
