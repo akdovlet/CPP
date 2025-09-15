@@ -1,46 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 01:44:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/15 18:44:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/15 18:52:44 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/15 19:57:54 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <string>
-#include <exception>
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-class GradeTooLowException : public std::exception
-{
-	virtual const char* what() const throw();
-};
+class Bureaucrat;
 
-class Bureaucrat
+class Form
 {
 private:
-	std::string const	_name;
-	int					_grade;
-	
+	const std::string	_name;
+	bool				_signed;
+	const int			_gradeSign;
+	const int			_gradeExec;
 public:
-	Bureaucrat();
-	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat(const std::string &name, const int grade);
-	Bureaucrat&	operator=(Bureaucrat other);
-	~Bureaucrat();
+	Form();
+	Form(const Form& other);
+	Form(const std::string &name, int gradeSign, int gradeExec);
+	Form&	operator=(Form other);
+	~Form();
 	
-	void	swap(Bureaucrat& left, Bureaucrat& right);
+	void	swap(Form& left, Form& right);
 	
 	const std::string&	getName() const;
-	int					getGrade() const;
-	void				incrementGrade();
-	void				decrementGrade();
+	bool				getSigned() const;
+	int					getGradeSign() const;
+	int					getGradeExec() const;
+	
+	void	beSigned(Bureaucrat& br);
 	
 	class GradeTooLowException : public std::exception
 	{
@@ -53,6 +52,6 @@ public:
 	};
 };
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& br);
+std::ostream&	operator<<(std::ostream& os, const Form& form);
 
 #endif
