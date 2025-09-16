@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("grade too high");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("grade too low");
 }
 
-Form::Form() : _name("Anon"), _signed(false), _gradeSign(1), _gradeExec(1)
+const char* AForm::NotSignedFormException::what() const throw()
+{
+	return ("Form not signed");
+}
+
+AForm::AForm() : _name("Anon"), _signed(false), _gradeSign(1), _gradeExec(1)
 {
 }
 
-Form::Form(const Form& other) : _name(other._name), _signed(other._signed), _gradeSign(other._gradeExec), _gradeExec(other._gradeSign)
+AForm::AForm(const AForm& other) : _name(other._name), _signed(other._signed), _gradeSign(other._gradeExec), _gradeExec(other._gradeSign)
 {	
 }
 
-Form::Form(const std::string &name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
+AForm::AForm(const std::string &name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
 	if (_gradeExec < 1 || _gradeSign < 1)
 		throw GradeTooHighException();
@@ -38,43 +43,37 @@ Form::Form(const std::string &name, int gradeSign, int gradeExec) : _name(name),
 		throw GradeTooLowException();
 }
 
-void	Form::swap(Form& left, Form& right)
+AForm& AForm::operator=(const AForm& other)
 {
-	using std::swap;
-	swap(left._signed, right._signed);
-}
-
-Form& Form::operator=(Form other)
-{
-	swap(*this, other);
+	_signed = other._signed;
 	return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
-const std::string&	Form::getName() const
+const std::string&	AForm::getName() const
 {
 	return (_name);
 }
 
-bool				Form::getSigned() const
+bool				AForm::getSigned() const
 {
 	return (_signed);
 }
 
-int					Form::getGradeSign() const
+int					AForm::getGradeSign() const
 {
 	return (_gradeSign);
 }
 
-int					Form::getGradeExec() const
+int					AForm::getGradeExec() const
 {
 	return (_gradeExec);
 }
 
-std::ostream&	operator<<(std::ostream& os, const Form& form)
+std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
 	os	<< form.getName() 
 		<< ", signed: " 
@@ -86,7 +85,7 @@ std::ostream&	operator<<(std::ostream& os, const Form& form)
 	return (os);
 }
 
-void	Form::beSigned(Bureaucrat& br)
+void	AForm::beSigned(Bureaucrat& br)
 {
 	if (br.getGrade() <= _gradeSign)
 		_signed = true;
