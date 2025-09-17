@@ -81,7 +81,7 @@ std::ostream&	operator<<(std::ostream& os, const AForm& form)
 		<< ", required grade to sign: " 
 		<< form.getGradeSign()
 		<< ", required grade to execute: "
-		<< form.getGradeExec() << std::endl;
+		<< form.getGradeExec() << ".";
 	return (os);
 }
 

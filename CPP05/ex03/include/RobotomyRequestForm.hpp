@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 17:32:32 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 20:35:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:02:13 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& other); 
 
 	void	execute(Bureaucrat const& executor) const;
+	void	process(Bureaucrat const& br) const;
 };
 
 #endif

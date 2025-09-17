@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:49:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 21:01:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:32:14 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,8 @@ int main()
 		}
 		std::cout << "Outside of try-catch block: " << Donny << std::endl;
 	}
-
-	// std::cout << "\n=== Form Sign Test" << std::endl;
-	// {
-	// 	Bureaucrat Joe("Joe", 2);
-	// 	AForm		presidentialPardon("Presidential Pardon Form", 1, 1);
-	// 	try
-	// 	{
-	// 		Joe.signForm(presidentialPardon);
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << e.what() << '\n';
-	// 	}
-	// 	Bureaucrat Donny("Donny", 1);
-	// 	try
-	// 	{
-	// 		Donny.signForm(presidentialPardon);
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		std::cerr << e.what() << '\n';
-	// 	}
-		
-	// }
-	std::cout << "\n=== << Khabib Shrubbery Test ===" << std::endl;
+	
+	std::cout << "\n=== Khabib Shrubbery Test ===" << std::endl;
 	{
 		Bureaucrat Khabib("Khabib", 145);
 		ShrubberyCreationForm Shrub("small");
@@ -94,7 +71,7 @@ int main()
 		Khabib.signForm(Shrub);
 		Khabib.executeForm(Shrub);
 	}
-	std::cout << "\n=== << Robotomy Test ===" << std::endl;
+	std::cout << "\n=== Robotomy Test ===" << std::endl;
 	{
 		Bureaucrat Bender("Bender", 1);
 		RobotomyRequestForm robotForm("");
@@ -103,7 +80,7 @@ int main()
 		Bender.executeForm(robotForm);
 	}
 	
-	std::cout << "\n=== << Presidential Pardon Test ===" << std::endl;
+	std::cout << "\n=== Presidential Pardon Test ===" << std::endl;
 	{
 		Bureaucrat	Jay("Jay", 1);
 		AForm		*form = new PresidentialPardonForm("Snowden");

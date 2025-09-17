@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 18:52:44 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 21:41:57 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:25:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ public:
 	
 };
 
-typedef void (AForm::*funcPtr)() const;
+typedef AForm* (*funcPtr)(std::string);
 
 std::ostream&	operator<<(std::ostream& os, const AForm& form);
 

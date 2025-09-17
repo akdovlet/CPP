@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 01:43:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/15 18:45:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:21:51 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat other)
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& br)
 {
-	os << br.getName() << ", bureaucrat grade " << br.getGrade() << "." << std::endl;
+	os << br.getName() << ", bureaucrat grade " << br.getGrade() << ".";
 	return (os);
 }
 

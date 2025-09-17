@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:49:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 13:30:42 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:27:28 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ int main()
 
 	std::cout << "\n=== Form Sign Test" << std::endl;
 	{
-		Bureaucrat Joe("Joe", 2);
+		Bureaucrat	Joe("Joe", 2);
 		Form		presidentialPardon("Presidential Pardon Form", 1, 1);
+		std::cout << presidentialPardon << std::endl;
 		try
 		{
 			Joe.signForm(presidentialPardon);
@@ -81,6 +82,5 @@ int main()
 		{
 			std::cerr << e.what() << '\n';
 		}
-		
 	}
 }

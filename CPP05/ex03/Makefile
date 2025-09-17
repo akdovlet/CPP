@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/16 21:02:11 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/17 14:56:42 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC			:=	main.cpp	\
 				AForm.cpp		\
 				ShrubberyCreationForm.cpp	\
 				RobotomyRequestForm.cpp		\
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp	\
+				Intern.cpp
 
 BUILD		:= .build
 

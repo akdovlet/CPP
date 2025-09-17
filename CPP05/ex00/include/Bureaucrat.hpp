@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 01:44:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/15 18:44:14 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:49:25 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include <string>
 #include <exception>
 #include <iostream>
-
-class GradeTooLowException : public std::exception
-{
-	virtual const char* what() const throw();
-};
 
 class Bureaucrat
 {

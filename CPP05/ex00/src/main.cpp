@@ -6,12 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:49:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 17:24:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:13:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
@@ -37,10 +36,20 @@ int main()
 	
 	std::cout << "\n=== Increment Grade Past Range Test ===" << std::endl;
 	try
-	{	std::cout << "\n=== << Operator Overload Test ===" << std::endl;
-
+	{
 		Bureaucrat Kim("Kim", 1);
 		Kim.incrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "\n=== Decrement Grade Past Range Test ===" << std::endl;
+	try
+	{
+		Bureaucrat Mandem("Mandem", 150);
+		Mandem.decrementGrade();
 	}
 	catch(const std::exception& e)
 	{

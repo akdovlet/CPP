@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:49:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 21:01:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:42:30 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -131,4 +132,33 @@ int main()
 		
 		delete form;
 	}
+
+	std::cout << "\nIntern Test" << std::endl;
+	{
+		Intern 	someRandomIntern;
+		AForm	*rrf;
+
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+		Bureaucrat	zorg("Zorg", 1);
+		Bureaucrat	midManager("manager", 73);
+		midManager.signForm(*rrf); // can't sign
+		midManager.incrementGrade();
+		midManager.signForm(*rrf); // can sign
+		zorg.signForm(*rrf);
+		zorg.executeForm(*rrf);
+		midManager.executeForm(*rrf);
+
+		delete rrf;
+	}
+
+		std::cout << "\nIntern Test" << std::endl;
+	{
+		Intern 	someRandomIntern;
+		AForm	*rrf;
+
+		rrf = someRandomIntern.makeForm("work complaint", "Bender");
+		std::cout << "Pointer value: " << rrf << std::endl;
+	}
+
 }

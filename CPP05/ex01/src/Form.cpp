@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:22:56 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/16 13:29:21 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:26:45 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ std::ostream&	operator<<(std::ostream& os, const Form& form)
 		<< ", required grade to sign: " 
 		<< form.getGradeSign()
 		<< ", required grade to execute: "
-		<< form.getGradeExec() << std::endl;
+		<< form.getGradeExec() << ".";
 	return (os);
 }
 
