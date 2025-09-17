@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:49:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/17 16:42:30 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 19:31:54 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,8 +157,10 @@ int main()
 		Intern 	someRandomIntern;
 		AForm	*rrf;
 
-		rrf = someRandomIntern.makeForm("work complaint", "Bender");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 		std::cout << "Pointer value: " << rrf << std::endl;
+		Bureaucrat	Flanders("Flanders", 1);
+		Flanders.executeForm(*rrf);
 	}
 
 }
