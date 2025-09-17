@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:22:56 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/17 16:26:45 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:39:22 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Form::Form(const Form& other) : _name(other._name), _signed(other._signed), _gra
 {	
 }
 
-Form::Form(const std::string &name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
+Form::Form(const std::string &name, int gradeSign, int gradeExec) : _name(name), _signed(false), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
 	if (_gradeExec < 1 || _gradeSign < 1)
 		throw GradeTooHighException();

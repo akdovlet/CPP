@@ -35,7 +35,7 @@ AForm::AForm(const AForm& other) : _name(other._name), _signed(other._signed), _
 {	
 }
 
-AForm::AForm(const std::string &name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
+AForm::AForm(const std::string &name, int gradeSign, int gradeExec) : _name(name), _signed(false), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
 	if (_gradeExec < 1 || _gradeSign < 1)
 		throw GradeTooHighException();
