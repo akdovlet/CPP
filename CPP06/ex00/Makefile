@@ -6,14 +6,15 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/18 21:09:49 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/19 16:22:21 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= convert
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp	\
+				ScalarConverter.cpp
 
 BUILD		:= .build
 
