@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/19 16:21:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/23 19:55:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 int main(int ac, char** av)
 {
 	if (ac > 1)
+	{
 		ScalarConverter::convert(av[1]);
+	}
 }
