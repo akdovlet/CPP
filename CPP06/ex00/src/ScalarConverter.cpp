@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:20:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/22 20:10:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:14:39 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 void	ScalarConverter::toChar(const std::string& str)
 {
-	unsigned char	c;
-	unsigned int	val;
-	std::stringstream sstr;
+	unsigned char		c;
+	unsigned int		val;
+	std::stringstream	sstr;
 
 	sstr << str;
 	std::cout << "char: ";
@@ -82,10 +82,13 @@ void	ScalarConverter::toInt(const std::string& str)
 int		getType(const std::string& str)
 {
 	int	i = 0;
-	bool	hasDigit;
+	bool	hasDigit = false;
+	bool	hasFractional = false;
 
 	if (str.length() == 1 && !isdigit(str[0]))
 		return (CHAR);
+	if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
+		return (CHARQ);
 	while (str[i] && isspace(str[i]))
 		i++;
 	while (str[i] && isdigit(str[i]))
@@ -98,7 +101,17 @@ int		getType(const std::string& str)
 	if (str[i++] == '.')
 	{
 		while (str[i] && isdigit(str[i]))
+		{
+			hasFractional = true;
+		}
+		if (hasDigit || hasFractional)
+		{
+			if (str[i] == 'f')
+				return (FLOAT);
+			return (DOUBLE);
+		}
 	}
+	return (UNKNOWN);
 }
 
 void	ScalarConverter::convert(const std::string str)
@@ -111,5 +124,29 @@ void	ScalarConverter::convert(const std::string str)
 
 	toChar(str);
 	toInt(str);
+	int	type;
+
+	type = getType(str);
+	switch (type)
+	{
+	case CHAR:
+		std::cout << "Type char" << std::endl;
+		break;
+	case CHARQ:
+		std::cout << "Type charq" << std::endl;
+		break ;
+	case INT:
+		std::cout << "Type int" << std::endl;
+		break ;
+	case FLOAT:
+		std::cout << "Type float" << std::endl;
+		break;
+	case DOUBLE:
+		std::cout << "Type double" << std::endl;
+		break ;
+	default:
+		std::cout << "Invalid type" << std::endl;
+		break;
+	}
 
 }

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:47:07 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/22 20:03:17 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:12:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 #include <sstream>
 
 #define CHAR 0
-#define INT 1
-#define FLOAT 2
-#define DOUBLE 3
+#define CHARQ 1
+#define INT 2
+#define FLOAT 3
+#define DOUBLE 4
+#define UNKNOWN 5
 
 class ScalarConverter
 {
