@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:20:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 12:22:10 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 16:04:17 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 int		ScalarConverter::getType(const std::string& str)
 {
 	int		i = 0;
-	bool	hasDigit = false;
+	bool	hasDi
+	}git = false;
 	bool	hasFractional = false;
 
 	if (str.length() == 1 && !isdigit(str[0]))

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:24:08 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 13:43:42 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:36:12 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@
 
 int main()
 {
-	Data	data("Hello World!");
-
 	uintptr_t	addr;
-	Data		*ptrAddr;
+	Data		*ptrAddr = new Data("Hello World!");
 
-	addr = Serializer::serialize(&data);
+	std::cout << "original pointer addr: " << ptrAddr << std::endl;
+	std::cout << "original ptrAddr string: " << ptrAddr->getValue() << std::endl;
+	
+	addr = Serializer::serialize(ptrAddr);
 	ptrAddr = Serializer::deserialize(addr);
 	
-	std::cout << "original pointer addr: " << &data << std::endl;
 	std::cout << "serialized address: "  << std::setw(5) << std::hex << "0x" << addr << std::endl;
 	std::cout << "deserialized address: "<< std::setw(15)   << ptrAddr << std::endl;
+	std::cout << "deserialized data string: " << ptrAddr->getValue() << std::endl;
+	
+	delete ptrAddr;
 	return (0);
 }

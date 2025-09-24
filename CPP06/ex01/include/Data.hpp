@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:19:57 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 13:30:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 16:59:24 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
 	Data(const std::string& str);
 	Data& operator=(const Data& other);
 	~Data();
+
+	std::string	getValue();
 };
 
 #endif

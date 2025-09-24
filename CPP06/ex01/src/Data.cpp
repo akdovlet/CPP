@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:23:38 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 13:27:04 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 16:59:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ Data& Data::operator=(const Data& other)
 
 Data::~Data()
 {
+}
+
+std::string	Data::getValue()
+{
+	return (_value);
 }
