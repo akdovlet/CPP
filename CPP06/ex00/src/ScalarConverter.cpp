@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:20:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 16:04:17 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 20:07:54 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <climits>
 #include <limits>
 #include <iomanip>
+#include <cmath>
 
 ScalarConverter::ScalarConverter()
 {
@@ -34,17 +35,43 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 	return (*this);
 }
 
+bool	checkChar(const std::string& str, int *i)
+{
+	while (str[*i] && isspace(str[*i]))
+		(*i)++;
+	if (str[*i] && str[*i] == '\'' && str[*i + 1] && str[*i + 2] == '\'')
+	{
+		*i += 3;
+		while (str[*i])
+		{
+			if (str[*i] && !isspace(str[*i]))
+				return (false);
+			(*i)++;
+		}
+		return (true);
+	}
+	if (str[*i] && !isdigit(str[*i]))
+	{
+		(*i)++;
+		while (str[*i])
+		{
+			if (str[*i] && !isspace(str[*i]))
+				return (false);
+			(*i)++;
+		}
+		return (true);
+	}
+	return (false);
+}
+
 //Figure out which type we're dealing with by process of elimination
 int		ScalarConverter::getType(const std::string& str)
 {
 	int		i = 0;
-	bool	hasDi
-	}git = false;
+	bool	hasDigit = false;
 	bool	hasFractional = false;
 
-	if (str.length() == 1 && !isdigit(str[0]))
-		return (CHAR);
-	if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
+	if (checkChar(str, &i))
 		return (CHAR);
 	while (str[i] && isspace(str[i]))
 		i++;
@@ -60,7 +87,16 @@ int		ScalarConverter::getType(const std::string& str)
 		i++;
 	}
 	if (hasDigit && (!str[i] || str[i] != '.'))
+	{
+		std::stringstream	sstr;
+		int					number;
+
+		sstr << str;
+		sstr >> number;
+		if (sstr.fail())
+			return (DOUBLE);
 		return (INT);
+	}
 	if (str[i++] == '.')
 	{
 		while (str[i] && isdigit(str[i]))
@@ -93,7 +129,7 @@ void	ScalarConverter::printValue(int i)
 
 void	ScalarConverter::printValue(float f)
 {
-	if (f - (int)f != 0 || f >= 1000000)
+	if (f - (int)f != 0 || f >= 1000000 || f <= -1000000)
 		std::cout << "float: " << f << "f" << std::endl;
 	else
 		std::cout << "float: " << f << ".0f" << std::endl;
@@ -101,20 +137,29 @@ void	ScalarConverter::printValue(float f)
 
 void	ScalarConverter::printValue(double d)
 {
-	if (d - (int)d != 0 || d >= 1000000)
+	if (d - (int)d != 0 || d >= 1000000 || d <= -1000000)
 		std::cout << "double: " << d << std::endl;
 	else
 		std::cout << "double: " << d << ".0" << std::endl;
 }
 
+char	findChar(const std::string& str)
+{
+	int i = 0;
+
+	if (str.length() == 1)
+		return (str[0]);
+	while (str[i] && isspace(str[i]))
+		i++;
+	if (str[i] == '\'' && str[i + 1] && str[i + 2] == '\'')
+		return (str[i + 1]);
+	return (str[i]);
+}
+
 void	ScalarConverter::convertToChar(const std::string& str)
 {
-	char c;
+	char c = findChar(str);
 	
-	if (str.length() == 1)
-		c = str[0];
-	else
-		c = str[1];
 	printValue(c);
 	printValue(static_cast<int>(c));
 	printValue(static_cast<float>(c));
@@ -124,17 +169,23 @@ void	ScalarConverter::convertToChar(const std::string& str)
 void	ScalarConverter::convertToInt(const std::string& str)
 {
 	std::stringstream	sstr;
-	double				n;
 	int					i;
 
 	sstr << str;
-	sstr >> n;
-	i = static_cast<int>(n);
-	printValue(static_cast<char>(i));
-	if (n > INT_MAX || n < INT_MIN)
-		std::cout << "int: impossible" << std::endl;
+	sstr >> i;
+	if (sstr.fail())
+	{
+		std::cout	<< "char: impossible\n"
+					<< "int: impossible\n"
+					<< "float: impossible\n"
+					<< "double: impossible" << std::endl;
+		return ;
+	}
+	if (i > 0 && i <= 127)
+		printValue(static_cast<char>(i));
 	else
-		printValue(i);
+		std::cout << "char: impossible" << std::endl;
+	printValue(i);
 	printValue(static_cast<float>(i));
 	printValue(static_cast<double>(i));
 }
@@ -142,10 +193,10 @@ void	ScalarConverter::convertToInt(const std::string& str)
 void	ScalarConverter::convertToFloat(const std::string& str)
 {
 	std::stringstream	sstr;
-	double				n;
+	float				f;
 
 	sstr << str;
-	sstr >> n;
+	sstr >> f;
 	if (str.find("nanf") != str.npos)
 	{
 		std::cout << "char: impossible" << std::endl; 
@@ -169,11 +220,24 @@ void	ScalarConverter::convertToFloat(const std::string& str)
 	}
 	else
 	{
-		float f = static_cast<float>(n);
-		printValue(static_cast<char>(f));
-		printValue(static_cast<int>(f));
-		printValue(f);
-		printValue(static_cast<double>(f));
+		if (!sstr.fail() && (f > 0 && f <= 127))
+			printValue(static_cast<char>(f));
+		else
+			std::cout << "char: impossible" << std::endl;
+		if (sstr.fail() || f > (float)INT_MAX || f < (float)INT_MIN)
+			std::cout << "int: impossible" << std::endl;
+		else
+			printValue(static_cast<int>(f));
+		if (sstr.fail())
+		{
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;	
+		}
+		else
+		{
+			printValue(f);
+			printValue(static_cast<double>(f));
+		}
 	}
 }
 
@@ -186,10 +250,10 @@ void	ScalarConverter::convertToDouble(const std::string& str)
 	sstr >> n;
 	if (str.find("nan") != str.npos)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: nanf" << std::endl;
-		std::cout << "double: nan" << std::endl;
+		std::cout	<< "char: impossible\n" 
+					<< "int: impossible\n" 
+					<< "float: nanf\n" 
+					<< "double: nan" << std::endl;
 	}
 	else if (str.find("-inf") != str.npos)
 	{
@@ -207,10 +271,22 @@ void	ScalarConverter::convertToDouble(const std::string& str)
 	}
 	else
 	{
-		printValue(static_cast<char>(n));
-		printValue(static_cast<int>(n));
-		printValue(static_cast<float>(n));
-		printValue(n);
+		if ((n > 0 && n <= 127) && !sstr.fail())
+			printValue(static_cast<char>(n));
+		else
+			std::cout << "char: impossible" << std::endl;
+		if (n > (double)INT_MAX || n < (double)INT_MIN || sstr.fail())
+			std::cout << "int: impossible" << std::endl;
+		else
+			printValue(static_cast<int>(n));
+		if (std::isinf(static_cast<float>(n)) || sstr.fail())
+			std::cout << "float: impossible" << std::endl;
+		else
+			printValue(static_cast<float>(n));
+		if (sstr.fail())
+			std::cout << "double: impossible" << std::endl;
+		else
+			printValue(n);
 	}
 }
 
@@ -242,8 +318,10 @@ void	ScalarConverter::convert(const std::string str)
 		convertToDouble(str);
 		break ;
 	default:
-		std::cout << "Invalid type" << std::endl;
+		std::cout	<< "char: impossible\n"
+					<< "int: impossible\n"
+					<< "float: impossible\n"
+					<< "double: impossible" << std::endl;
 		break;
 	}
-
 }
