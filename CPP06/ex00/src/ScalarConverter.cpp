@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:20:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/23 21:12:43 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 12:22:10 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 }
 
 //Figure out which type we're dealing with by process of elimination
-int		getType(const std::string& str)
+int		ScalarConverter::getType(const std::string& str)
 {
 	int		i = 0;
 	bool	hasDigit = false;
@@ -77,61 +77,68 @@ int		getType(const std::string& str)
 	return (UNKNOWN);
 }
 
-
-void	print(char c)
+void	ScalarConverter::printValue(char c)
 {
-	std::cout << "char: ";
 	if (isprint(c))
-		std::cout << "'" << c << "'" << std::endl;
-	else if (c < 0)
-		std::cout << "impossible" << std::endl;
+		std::cout << "char: " << "'" << c << "'" << std::endl;
 	else
-		std::cout << "Non displayable" << std::endl;
+		std::cout << "char: non displayable" << std::endl;
 }
 
-void	print(int i)
+void	ScalarConverter::printValue(int i)
 {
 	std::cout << "int: " << i << std::endl;
 }
 
-void	print(int i, const std::string& str)
+void	ScalarConverter::printValue(float f)
 {
-	(void)i;
-	std::cout << "int: " << str << std::endl;
+	if (f - (int)f != 0 || f >= 1000000)
+		std::cout << "float: " << f << "f" << std::endl;
+	else
+		std::cout << "float: " << f << ".0f" << std::endl;
 }
 
-void	print(float f, const std::string& str)
+void	ScalarConverter::printValue(double d)
 {
-	(void)f;
-	std::cout << "float: " << str << std::endl;
+	if (d - (int)d != 0 || d >= 1000000)
+		std::cout << "double: " << d << std::endl;
+	else
+		std::cout << "double: " << d << ".0" << std::endl;
 }
 
-void	convertTo(char c, const std::string& str)
+void	ScalarConverter::convertToChar(const std::string& str)
 {
+	char c;
+	
 	if (str.length() == 1)
 		c = str[0];
-	else if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
+	else
 		c = str[1];
-	print(c);
-	print(static_cast<int>(c));
+	printValue(c);
+	printValue(static_cast<int>(c));
+	printValue(static_cast<float>(c));
+	printValue(static_cast<double>(c));
 }
 
-void	convertTo(int i, const std::string& str)
+void	ScalarConverter::convertToInt(const std::string& str)
 {
 	std::stringstream	sstr;
 	double				n;
+	int					i;
 
 	sstr << str;
 	sstr >> n;
 	i = static_cast<int>(n);
-	print(static_cast<char>(i));
+	printValue(static_cast<char>(i));
 	if (n > INT_MAX || n < INT_MIN)
-		print(i, "impossible");
+		std::cout << "int: impossible" << std::endl;
 	else
-		print(i);
+		printValue(i);
+	printValue(static_cast<float>(i));
+	printValue(static_cast<double>(i));
 }
 
-void	convertTo(float f, const std::string& str)
+void	ScalarConverter::convertToFloat(const std::string& str)
 {
 	std::stringstream	sstr;
 	double				n;
@@ -140,34 +147,70 @@ void	convertTo(float f, const std::string& str)
 	sstr >> n;
 	if (str.find("nanf") != str.npos)
 	{
-		print((char) -1);
-		print(1, "impossible");
+		std::cout << "char: impossible" << std::endl; 
+		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: nanf" << std::endl;
 		std::cout << "double: nan" << std::endl;
 	}
 	else if (str.find("-inff") != str.npos)
 	{
-		print((char) -1);
-		print(1, "impossible");
+		std::cout << "char: impossible" << std::endl; 
+		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: -inff" << std::endl;
 		std::cout << "double: -inf" << std::endl;
 	}
 	else if (str.find("inff") != str.npos)
 	{
-		print((char) -1);
-		print(1, "impossible");
+		std::cout << "char: impossible" << std::endl; 
+		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: inff" << std::endl;
 		std::cout << "double: inf" << std::endl;
 	}
 	else
 	{
-		f = static_cast<float>(n);
-		print(static_cast<char>(f));
-		print(static_cast<int>(f));		
+		float f = static_cast<float>(n);
+		printValue(static_cast<char>(f));
+		printValue(static_cast<int>(f));
+		printValue(f);
+		printValue(static_cast<double>(f));
 	}
-	// if (n < std::numeric_limits<float>::max() || n > std::numeric_limits<float>::min())
-	// 	print(f, "impossible");
-	std::cout << "float: " << f << "f" << std::endl;
+}
+
+void	ScalarConverter::convertToDouble(const std::string& str)
+{
+	std::stringstream	sstr;
+	double				n;
+
+	sstr << str;
+	sstr >> n;
+	if (str.find("nan") != str.npos)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+	else if (str.find("-inf") != str.npos)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	else if (str.find("inf") != str.npos)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: inff" << std::endl;
+		std::cout << "double: inf" << std::endl;
+	}
+	else
+	{
+		printValue(static_cast<char>(n));
+		printValue(static_cast<int>(n));
+		printValue(static_cast<float>(n));
+		printValue(n);
+	}
 }
 
 void	ScalarConverter::convert(const std::string str)
@@ -178,22 +221,24 @@ void	ScalarConverter::convert(const std::string str)
 		return ;
 	}
 
+	// std::cout << std::fixed << std::setprecision(2);
 	switch (getType(str))
 	{
 	case CHAR:
-		std::cout << "Type char" << std::endl;
-		convertTo((char)CHAR, str);
+		// std::cout << "Type char" << std::endl;
+		convertToChar(str);
 		break;
 	case INT:
-		convertTo((int)INT, str);
-		std::cout << "Type int" << std::endl;
+		// std::cout << "Type int" << std::endl;
+		convertToInt(str);
 		break ;
 	case FLOAT:
-		convertTo((float)FLOAT, str);
-		std::cout << "Type float" << std::endl;
+		// std::cout << "Type float" << std::endl;
+		convertToFloat(str);
 		break;
 	case DOUBLE:
-		std::cout << "Type double" << std::endl;
+		// std::cout << "Type double" << std::endl;
+		convertToDouble(str);
 		break ;
 	default:
 		std::cout << "Invalid type" << std::endl;

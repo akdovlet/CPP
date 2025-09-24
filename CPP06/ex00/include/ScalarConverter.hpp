@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 19:47:07 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/23 19:34:10 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/24 12:23:13 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,27 @@
 #define DOUBLE 3
 #define UNKNOWN 4
 
-typedef struct s_value
-{
-	int	type;
-	union uu
-	{
-		char	c;
-		int		i;
-		float	f;
-		double	d;
-	} x;
-} value;
-
-
 class ScalarConverter
 {
 private:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& other);
 	ScalarConverter(const char c);
+	
+	static int getType(const std::string& str);
+	static void	printValue(char c);
+	static void	printValue(int i);
+	static void	printValue(float f);
+	static void	printValue(double d);
+	static void	convertToChar(const std::string& str);
+	static void	convertToInt(const std::string& str);
+	static void	convertToFloat(const std::string& str);
+	static void	convertToDouble(const std::string& str);
+
 public:
 	~ScalarConverter();
 	
 	ScalarConverter& operator=(const ScalarConverter& other);
-
-	static void	getChar(const std::string& str);
-	static void	toInt(const std::string& str);
-	static void	toLong(const std::string& str);
-	static void	toDouble(const std::string& str);
 	
 	static void convert(const std::string str);
 };

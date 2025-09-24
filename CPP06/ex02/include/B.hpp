@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 11:16:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/24 13:53:00 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/24 13:53:36 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef B_HPP
+#define B_HPP
 
-int main(int ac, char** av)
+#include "Base.hpp"
+
+class B : public Base
 {
-	if (ac > 1)
-	{
-		ScalarConverter::convert(av[1]);
-	}
-}
+public:
+	~B();
+};
+
+#endif

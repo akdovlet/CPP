@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 11:16:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/24 12:30:40 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/24 12:36:09 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SERIALIZER_HPP
+#define  SERIALIZER_HPP
 
-int main(int ac, char** av)
+#include <stdint.h>
+
+class Data;
+
+class Serializer
 {
-	if (ac > 1)
-	{
-		ScalarConverter::convert(av[1]);
-	}
-}
+private:
+	Serializer();
+	Serializer(const Serializer& other);
+	Serializer& operator=(const Serializer& other);
+public:
+	~Serializer();
+
+	static uintptr_t	serialize(Data *ptr);
+	static Data*		deserialize(uintptr_t raw);
+};
+
+#endif

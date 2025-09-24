@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 11:16:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/24 13:51:45 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/24 13:52:21 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "A.hpp"
 
-int main(int ac, char** av)
+A::~A()
 {
-	if (ac > 1)
-	{
-		ScalarConverter::convert(av[1]);
-	}
 }
+

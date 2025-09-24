@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 11:16:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/24 13:19:57 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/24 13:30:18 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef DATA_HPP
+#define DATA_HPP
 
-int main(int ac, char** av)
+#include <string>
+
+class Data
 {
-	if (ac > 1)
-	{
-		ScalarConverter::convert(av[1]);
-	}
-}
+private:
+	std::string	_value;
+public:
+	Data();
+	Data(const Data& other);
+	Data(const std::string& str);
+	Data& operator=(const Data& other);
+	~Data();
+};
+
+#endif

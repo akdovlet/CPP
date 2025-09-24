@@ -5,17 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 18:18:09 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 11:16:14 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/24 13:24:08 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/24 13:43:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Data.hpp"
+#include "Serializer.hpp"
+#include <iostream>
+#include <iomanip>
 
-int main(int ac, char** av)
+int main()
 {
-	if (ac > 1)
-	{
-		ScalarConverter::convert(av[1]);
-	}
+	Data	data("Hello World!");
+
+	uintptr_t	addr;
+	Data		*ptrAddr;
+
+	addr = Serializer::serialize(&data);
+	ptrAddr = Serializer::deserialize(addr);
+	
+	std::cout << "original pointer addr: " << &data << std::endl;
+	std::cout << "serialized address: "  << std::setw(5) << std::hex << "0x" << addr << std::endl;
+	std::cout << "deserialized address: "<< std::setw(15)   << ptrAddr << std::endl;
+	return (0);
 }
