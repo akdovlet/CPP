@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:54:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/25 14:33:37 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:35:42 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ Base*	generate(void)
 		return (NULL);
 	}
 }
-
-#include <typeinfo>
 
 void	identify(Base* p)
 {
@@ -74,5 +72,4 @@ void	identify(Base& p)
 		return ;
 	}
 	catch(const std::exception& e){}
-		
 }

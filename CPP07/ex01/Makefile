@@ -6,11 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/25 14:56:06 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/25 19:13:53 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= template
+NAME		:= iter
 
 SRC_DIR		:=	src
 SRC			:=	main.cpp

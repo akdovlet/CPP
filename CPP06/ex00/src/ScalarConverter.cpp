@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:20:36 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/25 10:23:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/25 15:13:14 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,31 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 	return (*this);
 }
 
-bool	checkChar(const std::string& str, int *i)
+bool	checkChar(const std::string& str)
 {
-	while (str[*i] && isspace(str[*i]))
-		(*i)++;
-	if (str[*i] && str[*i] == '\'' && str[*i + 1] && str[*i + 2] == '\'')
+	int i = 0;
+	
+	while (str[i] && isspace(str[i]))
+		i++;
+	if (str[i] && str[i] == '\'' && str[i + 1] && str[i + 2] == '\'')
 	{
-		*i += 3;
-		while (str[*i])
+		i += 3;
+		while (str[i])
 		{
-			if (str[*i] && !isspace(str[*i]))
+			if (str[i] && !isspace(str[i]))
 				return (false);
-			(*i)++;
+			i++;
 		}
 		return (true);
 	}
-	if (str[*i] && !isdigit(str[*i]))
+	if (str[i] && !isdigit(str[i]))
 	{
-		(*i)++;
-		while (str[*i])
+		i++;
+		while (str[i])
 		{
-			if (str[*i] && !isspace(str[*i]))
+			if (str[i] && !isspace(str[i]))
 				return (false);
-			(*i)++;
+			i++;
 		}
 		return (true);
 	}
@@ -71,7 +73,7 @@ int		ScalarConverter::getType(const std::string& str)
 	bool	hasDigit = false;
 	bool	hasFractional = false;
 
-	if (checkChar(str, &i))
+	if (checkChar(str))
 		return (CHAR);
 	while (str[i] && isspace(str[i]))
 		i++;
@@ -181,7 +183,7 @@ void	ScalarConverter::convertToInt(const std::string& str)
 					<< "double: impossible" << std::endl;
 		return ;
 	}
-	if (i > 0 && i <= 127)
+	if (i >= 0 && i <= 127)
 		printValue(static_cast<char>(i));
 	else
 		std::cout << "char: impossible" << std::endl;
@@ -220,7 +222,7 @@ void	ScalarConverter::convertToFloat(const std::string& str)
 	}
 	else
 	{
-		if (!sstr.fail() && (f > 0 && f <= 127))
+		if (!sstr.fail() && (f >= 0 && f <= 127))
 			printValue(static_cast<char>(f));
 		else
 			std::cout << "char: impossible" << std::endl;
@@ -271,7 +273,7 @@ void	ScalarConverter::convertToDouble(const std::string& str)
 	}
 	else
 	{
-		if ((n > 0 && n <= 127) && !sstr.fail())
+		if ((n >= 0 && n <= 127) && !sstr.fail())
 			printValue(static_cast<char>(n));
 		else
 			std::cout << "char: impossible" << std::endl;

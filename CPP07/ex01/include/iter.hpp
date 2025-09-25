@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 10:58:15 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/25 14:53:55 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/25 14:58:43 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/25 19:19:06 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <cstddef>
+#include <iostream>
 
 template<typename T>
-void	swap(T& a, T& b)
+void increment(T& a)
 {
-	T tmp;
-	
-	tmp = a;
-	a = b;
-	b = tmp;
+	a++;
 }
 
 template<typename T>
-const T&	min(const T& a, const T& b)
+T	print(const T& a)
 {
-	return (a < b ? a : b);
+	std::cout << a << std::endl;
+	return (a);
 }
 
-template<typename T>
-const T&	max(const T& a, const T& b)
+template<typename T, typename F>
+void	iter(T *arr, std::size_t size, F func)
 {
-	return (a > b ? a : b);
+	for (std::size_t i = 0; i < size; i++)
+		func(arr[i]);
 }
 
 #endif
