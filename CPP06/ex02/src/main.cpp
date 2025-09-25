@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:58:18 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 15:50:40 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:23:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,14 @@ int main()
 	
 		identify(basePtr);
 		identify(baseRef);
+	}
+
+	std::cout << "\n=== C test ===" << std::endl;
+	{
+		C* cPtr = new C();
+		Base& cRef = *cPtr;
+	
+		identify(cPtr);
+		identify(cRef);
 	}
 }

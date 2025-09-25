@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:54:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/24 15:49:12 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:33:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "C.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <exception>
 
 Base*	generate(void)
 {
@@ -31,6 +32,8 @@ Base*	generate(void)
 		return (NULL);
 	}
 }
+
+#include <typeinfo>
 
 void	identify(Base* p)
 {
@@ -48,10 +51,28 @@ void	identify(Base* p)
 
 void	identify(Base& p)
 {
-	if (dynamic_cast<A*>(&p))
+	try
+	{
+		(void)dynamic_cast<A&>(p);
 		std::cout << "reference is of type A" << std::endl;
-	if (dynamic_cast<B*>(&p))
+		return ;
+	}
+	catch(const std::exception& e){}
+	
+	try
+	{
+		(void)dynamic_cast<B&>(p);
 		std::cout << "reference is of type B" << std::endl;
-	if (dynamic_cast<C*>(&p))
+		return ;
+	}
+	catch(const std::exception& e){}
+	
+	try
+	{
+		(void)dynamic_cast<C&>(p);
 		std::cout << "reference is of type C" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e){}
+		
 }
