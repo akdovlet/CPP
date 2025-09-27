@@ -6,17 +6,14 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/27 16:26:53 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/27 13:48:53 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= FragTrap
+NAME		:= easy
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp		\
-				ClapTrap.cpp	\
-				ScavTrap.cpp	\
-				FragTrap.cpp
+SRC			:=	main.cpp
 
 BUILD		:= .build
 
@@ -28,7 +25,7 @@ DEP			:= $(OBJ:.o=.d)
 
 CXX := c++
 
-CXXFLAGS	:= -Wall -Werror -Wextra -Wshadow -std=c++98 -MMD -MP -Iinclude
+CXXFLAGS	= -Wall -Werror -Wextra -Wshadow -std=c++98 -MMD -MP -Iinclude -g
 
 $(BUILD):
 	@mkdir -p $(BUILD)
@@ -49,6 +46,11 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+debug: fclean debug_compile
+	
+debug_compile: CXXFLAGS+= -g -D DEBUG=1
+debug_compile: all;
 
 -include $(DEP)
 

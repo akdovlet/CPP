@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 16:05:35 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/27 12:42:24 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:19:46 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 template<typename T>
 Array<T>::Array() : _size(0)
 {
-	arr = new T[]();
+	arr = new T[_size]();
 }
 
 template<typename T>
