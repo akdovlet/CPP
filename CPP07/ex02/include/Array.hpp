@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:34:48 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/26 18:07:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/27 12:42:18 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ public:
 	
 	std::size_t	size() const;
 };
-
-template<typename T>
-std::ostream& operator<<(std::ostream& os, const Array<T>& obj);
 
 #include "Array.tpp"
 

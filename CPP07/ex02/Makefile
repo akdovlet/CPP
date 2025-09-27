@@ -6,11 +6,11 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/09/26 16:10:54 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/09/27 12:23:25 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= array
+NAME		:= arr
 
 SRC_DIR		:=	src
 SRC			:=	main.cpp

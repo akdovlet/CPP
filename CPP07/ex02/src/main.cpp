@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:35:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/26 18:06:46 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/27 12:41:25 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,24 @@ int main()
 	arr[3] = 7;
 	arr[4] = 1787;
 	arr[6] = 45;
-	arr[7] = 47;
-	Array<int>	cpy(arr);
+	arr[8] = 47;
+	Array<int>	cpy = arr;
 
+	std::cout << "=== array int test ===" << std::endl;
+	
 	for (std::size_t i = 0; i < arr.size(); i++)
 		std::cout << arr[i] << std::endl;
 
-	std::cout << "=== cpy test ===" << std::endl;
+	std::cout << "\n=== cpy test ===" << std::endl;
 	for (std::size_t i = 0; i < cpy.size(); i++)
 		std::cout << cpy[i] << std::endl;
 		
+	std::cout << "\n=== string array test ===" << std::endl;
 
 	for (std::size_t i = 0; i < splitter.size(); i++)
 		std::cout << splitter[i] << std::endl;
-
+		
+	std::cout << "\n=== Out of range test ===" << std::endl;
 	try
 	{
 		std::cout << splitter[4] << std::endl;
