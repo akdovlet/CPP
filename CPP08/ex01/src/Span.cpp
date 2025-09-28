@@ -65,8 +65,8 @@ int	Span::shortestSpan()
 
 	for(std::vector<int>::iterator it = v1.begin(); it != (v1.end() - 1); it++)
 	{
-		if (*it + *(it + 1) < shortestSpan)
-			shortestSpan = *it;
+		if (*(it + 1) - *it < shortestSpan)
+			shortestSpan = *(it + 1) - *it;
 	}
 	return (shortestSpan);
 }
