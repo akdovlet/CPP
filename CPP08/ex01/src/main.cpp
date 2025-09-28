@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 13:49:10 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/28 13:30:34 by akdovlet         ###   ########.fr       */
+/*   Created: 2025/09/28 19:12:27 by akdovlet          #+#    #+#             */
+/*   Updated: 2025/09/28 19:51:33 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-#define EASYFIND_HPP
+#include "Span.hpp"
+#include <cstdlib>
 
-#include <iterator>
-
-template<typename T>
-typename T::iterator	easyfind(T& container, int n)
+int main()
 {
-	for (typename T::iterator it = container.begin(); it != container.end(); it++)
-		if (*it == n)
-			return (it);
-	return (container.end());
-};
+	srand(time(NULL)^clock());
+	
+	Span sp(10);
 
-#endif
+	for (int i = 0; i < 10; i++)
+	{
+		int randN = rand() % 100;
+		sp.addNumber(randN);
+		std::cout << i << ": " << randN << std::endl;
+	}
+	std::cout << sp.shortestSpan() << std::endl;
+	
+	return (0);
+}
