@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 19:42:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/28 19:49:06 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:08:36 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ void	Span::addNumber(int n)
 {
 	if (++count > size)
 		throw maxCapacityException();
-	v1.push_back(n);
-	std::sort(v1.begin(), v1.end());
+	v1[count - 1] = n;
+	if (count > 1)
+		std::sort(v1.begin(), v1.begin() + count);
 }
 
 int	Span::shortestSpan()
@@ -73,5 +74,17 @@ int	Span::shortestSpan()
 
 int	Span::longestSpan()
 {
-	return (0);
+	if (count <= 1)
+		throw notEnoughValuesException();
+	return (v1[count - 1] - v1[0]);
+}
+
+int	Span::getCount()
+{
+	return (count);
+}
+
+int Span::getSize()
+{
+	return (size);
 }

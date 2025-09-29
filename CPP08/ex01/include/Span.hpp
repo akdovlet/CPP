@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:33:14 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/28 19:42:46 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:26:24 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ public:
 	int		shortestSpan();
 	int		longestSpan();
 	
+	int		getSize();
+	int		getCount();
 	class	maxCapacityException : std::exception
 	{
 		virtual const char* what() const throw();
