@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:33:14 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/29 12:26:24 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:34:03 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ public:
 	
 	int		getSize();
 	int		getCount();
-	class	maxCapacityException : std::exception
+	class	maxCapacityException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};
 	
-	class	notEnoughValuesException : std::exception
+	class	notEnoughValuesException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};

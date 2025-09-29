@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 19:42:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/29 13:08:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:34:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 const char*	Span::maxCapacityException::what() const throw()
 {
-	return ("Can't add more values, maximum capacity reached");
+	return ("Error: Can't add more values, maximum capacity reached");
 }
 
 const char* Span::notEnoughValuesException::what() const throw()
 {
-	return ("Not enough values to calculate span");
+	return ("Error: Not enough values to calculate span");
 }
 
 Span::Span(unsigned int n) : v1(n), size(n), count(0)

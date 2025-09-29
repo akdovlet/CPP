@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 19:12:27 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/29 13:14:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:38:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int ac, char **av)
 {
 	if (ac > 1 && std::string(av[1]) == "rand")
 	{
-		std::cout << "random 20k values test" << std::endl;
+		std::cout << "=== random 20k values test === " << std::endl;
 		srand(time(NULL)^clock());
 		
 		Span sp(20000);
@@ -35,22 +35,88 @@ int main(int ac, char **av)
 	}
 	else
 	{
-		std::cout << "positive values test" << std::endl;
-		Span sp(10);
-		sp.addNumber(10);
-		sp.addNumber(5);
-		sp.addNumber(30);
-		sp.addNumber(1);
-		sp.addNumber(8);
-		sp.addNumber(15);
-		sp.addNumber(42);
-		sp.addNumber(22);
-		sp.addNumber(12);
-		sp.addNumber(88);
-		std::cout << "Size: " << sp.getSize() << std::endl;
-		std::cout << "Count: " << sp.getCount() << std::endl;
-		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest span: " << sp.longestSpan() << std::endl;	
+		std::cout << "=== positive values test === " << std::endl;
+		{
+			Span sp(10);
+			
+			sp.addNumber(10);
+			sp.addNumber(5);
+			sp.addNumber(30);
+			sp.addNumber(1);
+			sp.addNumber(8);
+			sp.addNumber(15);
+			sp.addNumber(42);
+			sp.addNumber(22);
+			sp.addNumber(12);
+			sp.addNumber(88);
+			
+			std::cout << "Size: " << sp.getSize() << std::endl;
+			std::cout << "Count: " << sp.getCount() << std::endl;
+			std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+			std::cout << "Longest span: " << sp.longestSpan() << std::endl;				
+		}
+		std::cout << "\n=== Positive and negative values test === " << std::endl;
+		{
+			Span sp(10);
+
+			sp.addNumber(-1);
+			sp.addNumber(3);
+			sp.addNumber(-41);
+			sp.addNumber(332);
+			sp.addNumber(58);
+			sp.addNumber(12);
+			sp.addNumber(89);
+			sp.addNumber(-22);
+			sp.addNumber(24);
+			sp.addNumber(-8);
+
+			std::cout << "Size: " << sp.getSize() << std::endl;
+			std::cout << "Count: " << sp.getCount() << std::endl;
+			std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+			std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		}
+		
+		std::cout << "\n=== Exceptions Test ===" << std::endl;
+		{
+			Span	sp(2);
+			
+			sp.addNumber(1);
+			sp.addNumber(1);
+			try
+			{
+				sp.addNumber(1);
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+
+			Span	sp2(2);
+
+			try
+			{
+				sp2.shortestSpan();
+				sp2.longestSpan();
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+		}
+
+		std::cout << "\n=== Provided main test ===" << std::endl;
+		{
+			Span sp = Span(5);
+
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
 	}
 	return (0);
 }
