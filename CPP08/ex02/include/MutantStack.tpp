@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:14:34 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/01 18:46:39 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/01 19:58:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,16 @@ randomAccessIterator<T>	MutantStack<T, Container>::begin()
 {
 	return((&std::stack<T, Container>::top() + 1) - std::stack<T, Container>::size());
 }
+
+template<typename T, typename Container>
+randomAccessIterator<const T>	MutantStack<T, Container>::cend()
+{
+	return ((&std::stack<T, Container>::top() + 1));
+}
+
+template<typename T, typename Container>
+randomAccessIterator<const T>	MutantStack<T, Container>::cbegin()
+{
+	return((&std::stack<T, Container>::top() + 1) - std::stack<T, Container>::size());
+}
+
