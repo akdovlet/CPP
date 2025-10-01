@@ -6,27 +6,86 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:01:52 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/30 18:45:02 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/01 18:48:07 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include "randomAccessIterator.hpp"
 #include <iostream>
+#include <list>
+#include <string>
+
+#include <vector>
 
 int main()
 {
-	MutantStack<int> mt;
-	
-	mt.push(13);
-	mt.push(10);
-	mt.push(20);
-	mt.push(40);
-
-	MutantStack<int> m2 = mt;
-	for (int i = 0; i < 4; i++)
+	std::cout << "Mutan stack output" << std::endl;
 	{
-		std::cout << m2.top() << std::endl;
-		m2.pop();
+		MutantStack<int, std::vector<int> > mstack;
+		
+		
+		mstack.push(5);
+		mstack.push(17);
+		
+		std::cout << mstack.top() << std::endl;
+		
+		mstack.pop();
+		
+		std::cout << mstack.size() << std::endl;
+		
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		//[...]
+		mstack.push(0);
+		
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+
+		++it;
+		--it;
+		
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::stack<int, std::vector<int> > s(mstack); 
 	}
-	return (0);
+
+	std::cout << "\nstd list output" << std::endl;
+	{
+		std::list<int> lst;
+		
+		lst.push_back(5);
+		lst.push_back(17);
+		
+		std::cout << lst.back() << std::endl;
+		
+		lst.pop_back();
+		
+		std::cout << lst.size() << std::endl;
+		
+		lst.push_back(3);
+		lst.push_back(5);
+		lst.push_back(737);
+		//[...]
+		lst.push_back(0);
+		
+		std::list<int>::iterator it = lst.begin();
+		std::list<int>::iterator ite = lst.end();
+		
+		++it;
+		--it;
+		
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::list<int> s(lst); 
+	}
+
+	return 0;
 }

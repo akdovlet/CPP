@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:34:48 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/27 12:42:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/01 13:39:47 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template<typename T> class Array
 {
 private:
 	std::size_t	_size;
-	T *arr;
+	T			*arr;
 public:
 	Array();
 	Array(unsigned int n);
