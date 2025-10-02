@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 19:42:53 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/29 14:34:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/02 17:23:13 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,11 @@ int	Span::shortestSpan()
 	for(std::vector<int>::iterator it = v1.begin(); it != (v1.end() - 1); it++)
 	{
 		if (*(it + 1) - *it < shortestSpan)
+		{
 			shortestSpan = *(it + 1) - *it;
+			if (!shortestSpan)
+				return (shortestSpan);
+		}
 	}
 	return (shortestSpan);
 }
@@ -76,7 +80,7 @@ int	Span::longestSpan()
 {
 	if (count <= 1)
 		throw notEnoughValuesException();
-	return (v1[count - 1] - v1[0]);
+	return (*std::max_element(v1.begin(), v1.end()) - *std::min_element(v1.begin(), v1.end()));
 }
 
 int	Span::getCount()
@@ -87,4 +91,14 @@ int	Span::getCount()
 int Span::getSize()
 {
 	return (size);
+}
+
+std::vector<int>::iterator Span::begin() 
+{
+	return (v1.begin()); 
+}
+
+std::vector<int>::iterator Span::end() 
+{
+	return (v1.end()); 
 }

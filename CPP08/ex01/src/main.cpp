@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 19:12:27 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/29 14:38:02 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/02 17:07:56 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,27 @@ int main(int ac, char **av)
 
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
+		}
+
+		std::cout << "\n=== Insert range test ===" << std::endl;
+		{
+			Span sp(4);
+			std::vector<int> range;
+			range.push_back(1);
+			range.push_back(2);
+			range.push_back(3);
+			range.push_back(4);
+			range.push_back(5);
+			range.push_back(6);
+			range.push_back(7);
+			range.push_back(8);
+			range.push_back(9); 
+			range.push_back(10);
+			
+			sp.insert(sp.end() - 2, range.begin() + 4, range.end());
+
+			for (std::vector<int>::iterator it = sp.begin(); it != sp.end(); it++)
+				std::cout << *it << std::endl;
 		}
 	}
 	return (0);

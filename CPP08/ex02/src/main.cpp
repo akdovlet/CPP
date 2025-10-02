@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:01:52 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/01 20:26:37 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/02 14:20:50 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int main()
 {
-	std::cout << "=== Mutan stack output ===" << std::endl;
+	std::cout << "=== Mutant stack output ===" << std::endl;
 	{
 		MutantStack<int> mstack;
 		
@@ -85,8 +85,41 @@ int main()
 		}
 		std::list<int> s(lst); 
 	}
+	
+	std::cout << "\n=== std vector output ===" << std::endl;
+	{
+		std::vector<int> lst;
+		
+		lst.push_back(5);
+		lst.push_back(17);
+		
+		std::cout << lst.back() << std::endl;
+		
+		lst.pop_back();
+		
+		std::cout << lst.size() << std::endl;
+		
+		lst.push_back(3);
+		lst.push_back(5);
+		lst.push_back(737);
+		//[...]
+		lst.push_back(0);
+		
+		std::vector<int>::iterator it = lst.begin();
+		std::vector<int>::iterator ite = lst.end();
+		
+		++it;
+		--it;
+		
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::vector<int> s(lst); 
+	}
 
-		std::cout << "\n=== const iterator output ===" << std::endl;
+	std::cout << "\n=== const iterator output ===" << std::endl;
 	{
 		MutantStack<int, std::vector<int> > mvector;
 
@@ -100,7 +133,7 @@ int main()
 			std::cout << *rit << std::endl;
 	}
 	
-		std::cout << "\n=== Reverse iterator output ===" << std::endl;
+	std::cout << "\n=== Reverse iterator output ===" << std::endl;
 	{
 		MutantStack<int, std::vector<int> > mstack;
 		
