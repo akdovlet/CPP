@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:48:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/02 17:36:43 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:36:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,6 @@ public:
 	
 	pointer			getPointer() { return (t_ptr); }
 	const pointer	getConstPointer() const { return (t_ptr); }
-}; 8
+};
 
 #endif
