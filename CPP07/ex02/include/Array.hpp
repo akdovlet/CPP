@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:34:48 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/01 13:39:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/03 23:04:16 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ private:
 	std::size_t	_size;
 	T			*arr;
 public:
-	Array();
-	Array(unsigned int n);
+	Array(unsigned int n = 0);
 	Array(const Array& other);
 	Array&	operator=(Array other);
 	T&		operator[](size_t i);

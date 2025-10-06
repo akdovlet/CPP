@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 16:05:35 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/09/28 19:07:51 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/03 23:07:43 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #define ARRAY_TPP
 
 #include "Array.hpp"
-
-template<typename T>
-Array<T>::Array() : _size(0)
-{
-	arr = new T[_size]();
-}
 
 template<typename T>
 Array<T>::Array(unsigned int n) : _size(n), arr(new T[n]())
@@ -50,7 +44,7 @@ Array<T>& Array<T>::operator=(Array other)
 template<typename T>
 std::size_t	Array<T>::size() const
 {
-	return _size;
+	return (_size);
 }
 
 template<typename T>
