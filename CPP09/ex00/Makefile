@@ -6,14 +6,15 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/10/04 15:22:02 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/10/09 18:05:16 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= btc
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp	\
+				BitcoinExchange.cpp
 
 BUILD		:= .build
 

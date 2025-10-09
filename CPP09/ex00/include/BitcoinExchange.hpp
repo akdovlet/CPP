@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 09:28:58 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/05 15:32:03 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:37:36 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,29 @@
 
 #include <map>
 #include <ctime>
-
-class FailedOpenException : public std::exception
-{
-	const char* what() const throw() { return "Fatal error: can't open file"; }
-};
-
-class CorruptedDataBase : public std::exception
-{
-	const char* what() const throw() { return "Fatal error: corrupted data base"; }
-};
-
-class InvalidDate : public std::exception
-{
-	const char* what() const throw() { return "Invalid Date"; }
-};
+#include <utility>
 
 class BitcoinExchange
 {
 private:
-	std::map<time_t, double>	data_base;
+	std::map<time_t, float>	dataBase;
+
+	bool	parseData();
 public:
-	BitcoinExchange(const char* str = 0);
+	class Error;
+	
+	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);
+	BitcoinExchange& operator=(BitcoinExchange other);
 	~BitcoinExchange();
 
+	void	swap(BitcoinExchange& a, BitcoinExchange& b);
+
+	static bool	isLeapYear(int year);
+
+	void	printDB();
 };
 
-// BitcoinExchange::BitcoinExchange(const char* str)
-// {
-// }
-
-// BitcoinExchange::~BitcoinExchange()
-// {
-// }
-
+class BitcoinExchange::Error: public std::exception {};
 
 #endif
