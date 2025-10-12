@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 09:29:21 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/09 19:38:55 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/12 20:34:04 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class CantDeduceFormat : public BitcoinExchange::Error
 
 class FailedOpenException : public BitcoinExchange::Error
 {
+public:
 	const char* what() const throw() { return "Fatal error: can't open file"; }
 };
 
@@ -56,7 +57,7 @@ char	getFormat(const std::string& str)
 	while (i < str.size() && isspace(str[i]))
 		i++;
 	if (i == str.size() || !isalpha(str[i]))
-		throw std::runtime_error(", statement does not start with word");
+		throw std::runtime_error("statement does not start with word");
 	while (i < str.size() && isalpha(str[i]))
 		i++;
 	while (i < str.size() && isspace(str[i]))
@@ -74,19 +75,19 @@ char	getFormat(const std::string& str)
 bool	dirCheck(const char *filename)
 {
 	struct stat	s;
-	
+
 	if (!stat(filename, &s))
 	{
 		if (s.st_mode & S_IFDIR)
 		{
 			std::cerr << "Error: " << filename << " is directory" << std::endl;
 			return (false);
-		}	
+		}
 	}
 	else
 	{
 		std::cerr << "Error: " << filename <<": invalid path" << std::endl;
-		return (false);		
+		return (false);
 	}
 	return (true);
 }
@@ -210,8 +211,7 @@ void	parseValue(char sep, int& i, float& value, const std::string& str)
 	bool hasFraction = false;
 	
 	while (str[i] && isspace(str[i]))
-	i++;
-	std::cout << "str[i] is: " << str[i] << std::endl;
+		i++;
 	if (str[i++] != sep)
 		throw std::runtime_error("Invalid format, no separator");
 	while (str[i] && isspace(str[i]))
@@ -248,7 +248,6 @@ void	extractDateAndValue(char sep, float& value, std::tm& tm, const std::string&
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
 		throw;
 	}
 }
@@ -264,7 +263,7 @@ void	BitcoinExchange::printDB(void)
 	}
 }
 
-bool	BitcoinExchange::parseData()
+void	BitcoinExchange::parseData()
 {
 	std::ifstream	dataFile;
 	std::string		buffer;
@@ -296,11 +295,54 @@ bool	BitcoinExchange::parseData()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "Fatal error: " << e.what() << '\n';
 			dataFile.close();
-			throw;
+			throw ;
 		}
 		dataBase.insert(std::pair<std::time_t, float>(std::mktime(&tm), value));
 	}
-	return (true);
+	dataFile.close();
+}
+
+void	BitcoinExchange::parseInput(const char* file)
+{
+	std::ifstream	inFile;
+	std::string		buffer;
+	std::tm			tm = {};
+	float			value = 0;
+	char			separator;
+
+	if (!openFileSafely(file, inFile))
+		throw FailedOpenException();
+	getline(inFile, buffer);
+	try
+	{
+		separator = getFormat(buffer);
+	}
+	catch(const std::exception& e)
+	{
+		inFile.close();
+		throw;
+	}
+	while (1)
+	{
+		getline(inFile, buffer);
+		if (inFile.fail())
+			break ;
+		try
+		{
+			extractDateAndValue(separator, value, tm, buffer);
+		}
+		catch(const FailedOpenException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			continue ;
+		}
+	}
+	inFile.close();
 }
