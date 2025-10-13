@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 09:29:31 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/12 18:04:39 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:50:49 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ int main(int ac, char **av)
 {
 	if (ac > 1)
 	{
-		(void)av;
 		try
 		{
 			BitcoinExchange btc;
-			btc.printDB();
+			btc.getExchangeRate(av[1]);
 		}
 		catch(const std::exception& e)
 		{
-		}
-		
+		}		
 	}
+	return (0);
 }
