@@ -6,14 +6,15 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/10/13 19:02:41 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/10/14 16:03:52 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= RPN
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp	\
+				RPN.cpp
 
 BUILD		:= .build
 
