@@ -6,16 +6,14 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/10/14 16:08:46 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/10/14 16:08:35 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= btc
+NAME		:= PmergeMe
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp	\
-				BitcoinExchange.cpp	\
-				ParseData.cpp
+SRC			:=	main.cpp
 
 BUILD		:= .build
 

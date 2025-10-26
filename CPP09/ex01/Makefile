@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/10/14 16:03:52 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/10/14 16:08:43 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DEP			:= $(OBJ:.o=.d)
 
 CXX := c++
 
-CXXFLAGS	= -Wall -Werror -Wextra -Wshadow -std=c++98 -MMD -MP -Iinclude -g
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98 -MMD -MP -Iinclude -g
 
 $(BUILD):
 	@mkdir -p $(BUILD)

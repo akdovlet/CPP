@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 09:29:21 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/13 18:47:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/26 16:44:01 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,23 @@ BitcoinExchange::BitcoinExchange(const char* filename) try : dataBase()
 catch(const std::exception& e)
 {
 	throw;
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+{
+	dataBase = other.dataBase;
+}
+
+void	BitcoinExchange::swap(BitcoinExchange& a, BitcoinExchange& b)
+{
+	using std::swap;
+	swap(a.dataBase, b.dataBase);
+}
+
+BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange other)
+{
+	swap(*this, other);
+	return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange()
