@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/28 18:44:25 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:10:34 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,45 +33,46 @@ template<typename iterator, typename value = int>
 class GroupIterator
 {
 private:
-	iterator 		it;
-	std::size_t		size;
+	iterator 		_it;
+	std::size_t		_size;
 public:
 	typedef std::random_access_iterator_tag								iterator_category;
 	typedef iterator													iterator_type;
-	typedef typename std::iterator_traits<iterator>::difference_type	iterator_difference;
+	typedef typename std::iterator_traits<iterator>::difference_type	difference_type;
 	typedef typename std::iterator_traits<iterator>::value_type			value_type;
 	typedef typename std::iterator_traits<iterator>::pointer			iterator_pointer;
 	typedef typename std::iterator_traits<iterator>::reference			iterator_reference;
 
-	GroupIterator() : size(0) {}
-	GroupIterator(iterator it, std::size_t size = 0) : it(it), size(size) {}
+	GroupIterator() : _size(0) {}
+	GroupIterator(iterator _it, std::size_t _size = 0) : _it(_it), _size(_size) {}
 	~GroupIterator() {}
 
-	void	swap(GroupIterator& a, GroupIterator& b) { using std::swap;	swap(a.it, b.it); swap(a.size, b.size); }
+	void	swap(GroupIterator& a, GroupIterator& b) { using std::swap;	swap(a._it, b._it); swap(a._size, b._size); }
 
-	iterator	getIterator() { return (it); }
-	std::size_t	getSize() { return (size); }
+	iterator	base() { return (_it); }
+	std::size_t	size() { return (_size); }
 
-	value operator*() const { return (it[size - 1]); }
+	value_type operator*() const { return (_it[_size - 1]); }
 
 	GroupIterator& operator=(GroupIterator other) { swap(*this, other); return (*this); }
-	GroupIterator& operator++() { it += size; return (*this); }
+	GroupIterator& operator++() { _it += _size; return (*this); }
 	GroupIterator operator++(int) { GroupIterator tmp(*this); operator++(); return (tmp); }
-	GroupIterator& operator--() { it -= size; return (*this); }
+	GroupIterator& operator--() { _it -= _size; return (*this); }
 	GroupIterator operator--(int) { GroupIterator tmp(*this); operator--(); return (tmp); }
 
-	GroupIterator& operator+=(iterator_difference increment) { it += size * increment; return (*this); }
-	GroupIterator& operator-=(iterator_difference increment) { it -= size * increment; return (*this); }
+	GroupIterator& operator+=(difference_type increment) { _it += _size * increment; return (*this); }
+	GroupIterator& operator-=(difference_type increment) { _it -= _size * increment; return (*this); }
 
-	GroupIterator operator+(iterator_difference mov) { iterator oldIt = it; it += mov; GroupIterator tmp(*this); it = oldIt; return (tmp); }
-	GroupIterator operator-(iterator_difference mov) { iterator oldIt = it; it -= mov; GroupIterator tmp(*this); it = oldIt; return (tmp); }
-	
-	value	operator[](std::size_t pos) { return (it[pos * size + size -1]); }
-	value	operator[](std::size_t pos) const { return (it[pos * size + size -1]); }
+	GroupIterator operator+(difference_type mov) { *this += mov; return (*this); }
+	GroupIterator operator-(difference_type mov) { *this -= mov; return (*this); }
+	difference_type operator-(const GroupIterator& right) { return ((base() - right.base()) / size()); }
+
+	value_type	operator[](std::size_t pos) { return (_it[pos * _size + _size -1]); }
+	value_type	operator[](std::size_t pos) const { return (_it[pos * _size + _size -1]); }
 	
 };
 
 template<typename iterator>
-void	swap_ranges(GroupIterator<iterator> a, GroupIterator<iterator> b) { range_swap<iterator>(a.getIterator(), a.getIterator() + a.getSize(), b.getIterator()); }
+void	swap_ranges(GroupIterator<iterator> a, GroupIterator<iterator> b) { range_swap<iterator>(a.base(), a.base() + a.size(), b.base()); }
 
 #endif
