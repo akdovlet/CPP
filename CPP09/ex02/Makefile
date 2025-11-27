@@ -6,14 +6,15 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/04 15:15:56 by akdovlet          #+#    #+#              #
-#    Updated: 2025/10/14 16:08:35 by akdovlet         ###   ########.fr        #
+#    Updated: 2025/11/27 18:21:36 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= PmergeMe
 
 SRC_DIR		:=	src
-SRC			:=	main.cpp
+SRC			:=	main.cpp	\
+				PmergeMe.cpp
 
 BUILD		:= .build
 

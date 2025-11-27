@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/11/25 17:10:34 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:16:45 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,41 @@ void	range_swap(iterator first1, iterator last1, iterator first2)
 		iter_swap<iterator, iterator>(first1, first2);
 }
 
-template<typename iterator, typename value = int>
+template<typename Iterator>
+Iterator	next(Iterator it, typename std::iterator_traits<Iterator>::difference_type n)
+{
+	std::advance(it, n);
+	return (it);
+}
+
+template<typename Iterator, typename value = int>
 class GroupIterator
 {
 private:
-	iterator 		_it;
+	Iterator 		_it;
 	std::size_t		_size;
 public:
 	typedef std::random_access_iterator_tag								iterator_category;
-	typedef iterator													iterator_type;
-	typedef typename std::iterator_traits<iterator>::difference_type	difference_type;
-	typedef typename std::iterator_traits<iterator>::value_type			value_type;
-	typedef typename std::iterator_traits<iterator>::pointer			iterator_pointer;
-	typedef typename std::iterator_traits<iterator>::reference			iterator_reference;
+	typedef Iterator													iterator_type;
+	typedef typename std::iterator_traits<Iterator>::difference_type	difference_type;
+	typedef typename std::iterator_traits<Iterator>::value_type			value_type;
+	typedef typename std::iterator_traits<Iterator>::pointer			pointer;
+	typedef typename std::iterator_traits<Iterator>::reference			reference;
 
 	GroupIterator() : _size(0) {}
-	GroupIterator(iterator _it, std::size_t _size = 0) : _it(_it), _size(_size) {}
+	GroupIterator(Iterator _it, std::size_t _size = 0) : _it(_it), _size(_size) {}
 	~GroupIterator() {}
 
 	void	swap(GroupIterator& a, GroupIterator& b) { using std::swap;	swap(a._it, b._it); swap(a._size, b._size); }
 
-	iterator	base() { return (_it); }
-	std::size_t	size() { return (_size); }
+	Iterator	base() const { return (_it); }
+	std::size_t	size() const { return (_size); }
 
-	value_type operator*() const { return (_it[_size - 1]); }
+	reference	 operator*() const { return (*next(_it, _size -1)); }
 
+	bool	operator==(const GroupIterator& other){ return (base() == other.base()); }
+	bool	operator!=(const GroupIterator& other){ return (base() != other.base()); }
+	
 	GroupIterator& operator=(GroupIterator other) { swap(*this, other); return (*this); }
 	GroupIterator& operator++() { _it += _size; return (*this); }
 	GroupIterator operator++(int) { GroupIterator tmp(*this); operator++(); return (tmp); }
@@ -69,7 +79,6 @@ public:
 
 	value_type	operator[](std::size_t pos) { return (_it[pos * _size + _size -1]); }
 	value_type	operator[](std::size_t pos) const { return (_it[pos * _size + _size -1]); }
-	
 };
 
 template<typename iterator>
