@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:46:52 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/11/27 19:30:06 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:21:57 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	merge_insertion_sort(Iterator first, Iterator last)
 	if (size < 2)
 		return ;
 
-	std::list<GroupIterator<Iterator> >	lst(size);
+	std::list<GroupIterator<Iterator> >	lst;
 	merge_insertion_sort_recursion<Iterator, GroupIterator<Iterator> >(GroupIterator<Iterator>(first, 1), GroupIterator<Iterator>(last, 1), lst);
-	
+		
 	lst.push_back(first);
-	lst.push_back(next(first));
+	lst.push_back(next(first, 1));
 }
 
 int main()
