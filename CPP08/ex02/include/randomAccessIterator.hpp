@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:48:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/02 18:36:37 by akdovlet         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:24:04 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 
 	randomAccessIterator operator+(const difference_type mov) { pointer oldPtr = t_ptr; t_ptr += mov; randomAccessIterator tmp(*this); t_ptr = oldPtr; return (tmp); }
 	randomAccessIterator operator-(const difference_type mov) { pointer oldPtr = t_ptr; t_ptr -= mov; randomAccessIterator tmp(*this); t_ptr = oldPtr; return (tmp); }
-	
+
 	difference_type operator-(const randomAccessIterator& other) { return (std::distance(other.getPointer(), getPointer())) ; }
 	
 	randomAccessIterator& operator=(const randomAccessIterator& other) { t_ptr = other.t_ptr; return (*this); }
@@ -73,7 +73,7 @@ public:
 	typedef T	value_type;
 	typedef T*	pointer;
 	typedef T&	reference;
-	typedef std::ptrdiff_t	difference_type;
+	typedef std::ptrdiff_t	difference_type; 
 	
 	reverseIterator(pointer ptr = NULL) : t_ptr(ptr) {}
 	reverseIterator(const reverseIterator& other) : t_ptr(other.t_ptr) {}
@@ -93,7 +93,7 @@ public:
 	reverseIterator operator-(const difference_type mov) { pointer oldPtr = t_ptr; t_ptr += mov; reverseIterator tmp(*this); t_ptr = oldPtr; return (tmp); }
 	
 	difference_type operator-(const reverseIterator& other) { return (std::distance(other.getPointer(), getPointer())) ; }
-	
+
 	reverseIterator& operator=(const reverseIterator& other) { t_ptr = other.t_ptr; return (*this); }
 	reverseIterator& operator=(reverseIterator *ptr) { t_ptr = ptr; return (*this); }
 	

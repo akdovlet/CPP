@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:59:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/08/29 23:37:56 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/25 15:09:08 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed(int const val) : _value(val << _frac)
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const val) : _value(static_cast<int>(roundf(val * (1 << _frac))))
+Fixed::Fixed(float const val) : _value(static_cast<int>(roundf(val * (1 << _frac)) ))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
