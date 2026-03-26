@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/11/28 15:47:10 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/26 15:29:25 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Iterator	next(Iterator it, typename std::iterator_traits<Iterator>::difference_t
 	return (it);
 }
 
-template<typename Iterator, typename value = int>
+template<typename Iterator>
 class GroupIterator
 {
 private:
@@ -51,7 +51,7 @@ public:
 	typedef typename std::iterator_traits<Iterator>::reference			reference;
 
 	GroupIterator() : _size(0) {}
-	GroupIterator(Iterator _it, std::size_t _size = 0) : _it(_it), _size(_size) {}
+	GroupIterator(Iterator _it, difference_type _size = 0) : _it(_it), _size(_size) {}
 	~GroupIterator() {}
 
 	void	swap(GroupIterator& a, GroupIterator& b) { using std::swap;	swap(a._it, b._it); swap(a._size, b._size); }
