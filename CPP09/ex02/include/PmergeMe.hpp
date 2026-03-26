@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 12:23:27 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/26 14:58:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/26 21:24:40 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 extern int comp_count;
 
-void	merge_sort(std::vector<int> &vec);
+template<typename Iterator>
+void	merge_insertion_sort(Iterator first, Iterator last);
 
 #endif

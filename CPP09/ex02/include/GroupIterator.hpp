@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/26 15:29:25 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/26 21:15:18 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ public:
 
 	reference	 operator*() const { return (*next(_it, _size -1)); }
 
-	bool	operator==(const GroupIterator& other){ return (base() == other.base()); }
-	bool	operator!=(const GroupIterator& other){ return (base() != other.base()); }
+	bool	operator==(const GroupIterator& other) const { return (base() == other.base()); }
+	bool	operator!=(const GroupIterator& other) const { return (base() != other.base()); }
 	
 	GroupIterator& operator=(GroupIterator other) { swap(*this, other); return (*this); }
 	GroupIterator& operator++() { _it += _size; return (*this); }
@@ -73,9 +73,9 @@ public:
 	GroupIterator& operator+=(difference_type increment) { _it += _size * increment; return (*this); }
 	GroupIterator& operator-=(difference_type increment) { _it -= _size * increment; return (*this); }
 
-	GroupIterator operator+(difference_type mov) { *this += mov; return (*this); }
-	GroupIterator operator-(difference_type mov) { *this -= mov; return (*this); }
-	difference_type operator-(const GroupIterator& right) { return ((base() - right.base()) / size()); }
+	GroupIterator operator+(difference_type mov) const { GroupIterator tmp(*this); tmp += mov; return (tmp); }
+	GroupIterator operator-(difference_type mov) const { GroupIterator tmp(*this); tmp -= mov; return (tmp); }
+	difference_type operator-(const GroupIterator& right) const { return ((base() - right.base()) / size()); }
 
 	value_type	operator[](std::size_t pos) { return (_it[pos * _size + _size -1]); }
 	value_type	operator[](std::size_t pos) const { return (_it[pos * _size + _size -1]); }
