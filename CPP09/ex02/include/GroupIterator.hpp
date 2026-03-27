@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/26 21:15:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:20:23 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,16 @@ void	range_swap(iterator first1, iterator last1, iterator first2)
 }
 
 template<typename Iterator>
-Iterator	next(Iterator it, typename std::iterator_traits<Iterator>::difference_type n = 1 )
+Iterator	next(Iterator it, typename std::iterator_traits<Iterator>::difference_type n)
 {
 	std::advance(it, n);
 	return (it);
+}
+
+template<typename Iterator>
+Iterator next(Iterator it)
+{
+	return (++it);
 }
 
 template<typename Iterator>

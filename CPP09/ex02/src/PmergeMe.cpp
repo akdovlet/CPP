@@ -6,20 +6,20 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/26 21:23:55 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/03/27 17:03:05 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GroupIterator.hpp"
 #include "PmergeMe.hpp"
 
-int comp_count = 0;
 
 template<typename GI>
 struct GroupComp
 {
 	bool operator()(const GI& lhs, const GI& rhs) const
 	{
+		comp_count++;
 		return (*lhs < *rhs);
 	}
 };
@@ -39,7 +39,9 @@ void	merge_insertion_sort_recursion(GroupIterator<Iterator> first, GroupIterator
 	for (GI it = first; it != end; it+= 2)
 	{
 		if (*it > *next(it, 1))
+		{
 			swap_ranges(it, next(it, 1));
+		}
 	}
 	merge_insertion_sort_recursion<Iterator>(GI(first.base(), 2 * first.size()), GI(end.base(), 2 * end.size()));
 
@@ -110,12 +112,20 @@ void	merge_insertion_sort_recursion(GroupIterator<Iterator> first, GroupIterator
 	
 }
 
-template<typename Iterator>
-void	merge_insertion_sort(Iterator first, Iterator last)
+void	merge_insertion_sort(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
 	int size = last - first;
 	if (size < 2)
 		return ;
-	merge_insertion_sort_recursion(	GroupIterator<Iterator>(first, 1),
-									GroupIterator<Iterator>(last, 1));
+	merge_insertion_sort_recursion(	GroupIterator<std::vector<int>::iterator>(first, 1),
+									GroupIterator<std::vector<int>::iterator>(last, 1));
+}
+
+void	merge_insertion_sort(std::deque<int>::iterator first, std::deque<int>::iterator last)
+{
+	int size = last - first;
+	if (size < 2)
+		return ;
+	merge_insertion_sort_recursion(	GroupIterator<std::deque<int>::iterator>(first, 1),
+									GroupIterator<std::deque<int>::iterator>(last, 1));
 }
