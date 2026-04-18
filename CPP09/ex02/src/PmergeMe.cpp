@@ -6,12 +6,15 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:50 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/27 17:03:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:13:47 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GroupIterator.hpp"
 #include "PmergeMe.hpp"
+
+#include <algorithm>
+#include <list>
 
 
 template<typename GI>
@@ -38,9 +41,9 @@ void	merge_insertion_sort_recursion(GroupIterator<Iterator> first, GroupIterator
 	GI end = hasStray ? last - 1 : last;
 	for (GI it = first; it != end; it+= 2)
 	{
-		if (*it > *next(it, 1))
+		if (*it > *gi_next(it, 1))
 		{
-			swap_ranges(it, next(it, 1));
+				gi_swap_ranges(it, gi_next(it, 1));
 		}
 	}
 	merge_insertion_sort_recursion<Iterator>(GI(first.base(), 2 * first.size()), GI(end.base(), 2 * end.size()));

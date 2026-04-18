@@ -6,38 +6,40 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:46:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/27 14:20:23 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:13:47 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GROUPITERATOR_HPP
 #define GROUPITERATOR_HPP
 
+#include <algorithm>
+#include <cstddef>
 #include <iterator>
 
 template<class iterator>
-void	iter_swap(iterator a, iterator b)
+void	gi_iter_swap(iterator a, iterator b)
 {
 	using std::swap;
 	swap(*a, *b);
 }
 
 template<class iterator>
-void	range_swap(iterator first1, iterator last1, iterator first2)
+void	gi_range_swap(iterator first1, iterator last1, iterator first2)
 {
 	for (; first1 != last1; first1++, first2++)
-		iter_swap<iterator, iterator>(first1, first2);
+		gi_iter_swap(first1, first2);
 }
 
 template<typename Iterator>
-Iterator	next(Iterator it, typename std::iterator_traits<Iterator>::difference_type n)
+Iterator	gi_next(Iterator it, typename std::iterator_traits<Iterator>::difference_type n)
 {
 	std::advance(it, n);
 	return (it);
 }
 
 template<typename Iterator>
-Iterator next(Iterator it)
+Iterator gi_next(Iterator it)
 {
 	return (++it);
 }
@@ -65,7 +67,7 @@ public:
 	Iterator	base() const { return (_it); }
 	std::size_t	size() const { return (_size); }
 
-	reference	 operator*() const { return (*next(_it, _size -1)); }
+	reference	 operator*() const { return (*gi_next(_it, _size -1)); }
 
 	bool	operator==(const GroupIterator& other) const { return (base() == other.base()); }
 	bool	operator!=(const GroupIterator& other) const { return (base() != other.base()); }
@@ -88,6 +90,6 @@ public:
 };
 
 template<typename iterator>
-void	swap_ranges(GroupIterator<iterator> a, GroupIterator<iterator> b) { range_swap<iterator>(a.base(), a.base() + a.size(), b.base()); }
+void	gi_swap_ranges(GroupIterator<iterator> a, GroupIterator<iterator> b) { gi_range_swap<iterator>(a.base(), a.base() + a.size(), b.base()); }
 
 #endif

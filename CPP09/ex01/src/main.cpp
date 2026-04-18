@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:14:06 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/14 16:03:25 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:36:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int main(int ac, char **av)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		return (1);
 	}
+	return (0);
 }

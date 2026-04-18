@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 12:23:27 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/27 11:38:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:10:22 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include <vector>
 #include <deque>
 #include <iterator>
-#include <iostream>
-#include <algorithm>
-#include <list>
 #include <sstream>
 
 extern int comp_count;

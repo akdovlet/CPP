@@ -6,14 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:02:31 by akdovlet          #+#    #+#             */
-/*   Updated: 2026/03/26 10:21:41 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:36:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 #include <iostream>
 #include <stack>
-#include <list>
 
 bool	isoperator(char c)
 {
@@ -24,29 +23,19 @@ bool	isoperator(char c)
 
 bool isnumber(char c, char d)
 {
-	if (isdigit(c))
-		return (true);
-	if ((c == '-' || c == '+') && isdigit(d))
+	if (isdigit(c) && !isdigit(d) && c >= '0' && c <= '9')
 		return (true);
 	return (false);
 }
 
 int	ak_atoi(const char *str, int& i)
 {
-	long	flip = 1;
-	long	value = 0;
-	
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			flip = -flip;
-	while (str[i] && isdigit(str[i]))
-	{
-		value = value * 10 + str[i++] - '0';
-	}
-	return (value * flip);
+	int value = str[i] - '0';
+	i++;
+	return (value);
 }
 
-void	calculate(std::stack<int, std::list<int> >& stack, char op)
+void	calculate(std::stack<int>& stack, char op)
 {
 	if (stack.size() < 2)
 		throw std::runtime_error("Syntax error");
@@ -80,7 +69,7 @@ void	calculate(std::stack<int, std::list<int> >& stack, char op)
 void	rpnCalculator(const char* str)
 {
 	int	i = 0;
-	std::stack<int, std::list<int> > stack;
+	std::stack<int> stack;
 	
 	while (str[i])
 	{

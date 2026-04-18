@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:40:51 by akdovlet          #+#    #+#             */
-/*   Updated: 2025/10/13 19:01:13 by akdovlet         ###   ########.fr       */
+/*   Updated: 2026/04/18 02:36:49 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ bool	dirCheck(const char *filename)
 
 void	openFileSafely(const char *filename, std::ifstream& infile)
 {
-	if (!dirCheck(filename))
+	struct stat	s;
+
+	if (!stat(filename, &s) && (s.st_mode & S_IFDIR))
 		throw std::runtime_error("Error: " + std::string(filename) + " is directory");
 	infile.open(filename);
 	if (infile.fail())
-		throw std::runtime_error("Error: " + std::string(strerror(errno)));
+		throw std::runtime_error("Error: can't open file");
 }
 
 int	checkYear(const std::string& str, int& i)
@@ -326,13 +328,6 @@ void	BitcoinExchange::parseInput(const char* file)
 
 void	BitcoinExchange::getExchangeRate(const char* infile)
 {
-	try
-	{
-		parseInput(infile);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	parseInput(infile);
 }
 
